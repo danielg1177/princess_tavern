@@ -1,0 +1,138 @@
+.banner-container {
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  background-image: url("../../images/banner.jpg");
+  height: 600px;
+  width: 100%;
+  margin-top: 90px;
+  display: flex;
+  align-items: center;
+}
+
+.banner-logo {
+    /* height: 550px; */
+    width: 30%;
+}
+
+.banner-info {
+    display: flex;
+    align-items: center;
+}
+
+.banner-description {
+    color: white;
+    text-shadow: 1px 1px 2px rgba(150, 150, 150, .8);
+    flex-grow: 2;
+}
+.banner-description h1 {
+    font-size: 65px;
+    margin: 0;
+    /* font-weight: bold; */
+    /* font-family: 'Orelega One', cursive; */
+}
+
+.banner-description p {
+    font-size: 19px;
+    margin: 0;
+}
+
+@media screen and (max-width: 1050px) {
+    .banner-description h1 {
+        font-size: 55px;
+    }
+
+    .banner-description p {
+        font-size: 15px;
+    }
+
+    .banner-logo {
+        width: 33%;
+    }
+}
+
+@media screen and (max-width: 900px) {
+    .banner-container {
+        height: 500px;
+        justify-content: center;
+    }
+
+    .banner-description h1 {
+        font-size: 50px;
+    }
+
+    .banner-description p {
+        font-size: 14px;
+    }
+
+    .banner-logo {
+    /* height: 550px; */
+        width: 40%;
+    }   
+}
+
+@media screen and (max-width: 768px) {
+  .banner-container {
+    height: 400px;
+  }
+
+  .banner-info {
+      flex-direction: column;
+      height: 100%;
+      justify-content: center;
+  }
+
+    .banner-logo {
+        width: 300px;
+    } 
+}
+
+    .banner-description h1 {
+        text-align: center;
+    }
+
+    .banner-description {
+        margin-bottom: 30px;
+    }
+
+    .banner-description p {
+        text-align: center;
+    }
+
+@media screen and (max-width: 576px) {
+  .banner-container {
+        height: 400px;
+  }
+  .banner-logo {
+        width: 250px;
+    } 
+
+    .banner-description h1 {
+        font-size: 45px;
+    }
+
+    .banner-description p {
+        font-size: 13px;
+    }
+
+    .banner-description {
+        padding: 25px;
+    }
+}
+
+@media screen and (max-width: 400px) {
+    .banner-logo {
+        width: 220px;
+    } 
+
+    .banner-description h1 {
+        font-size: 40px;
+    }
+
+    .banner-description p {
+        font-size: 12px;
+    }
+
+    .banner-description {
+        padding: 25px;
+    }
+}

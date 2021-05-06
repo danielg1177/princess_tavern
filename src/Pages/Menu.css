@@ -1,0 +1,37 @@
+.menu-containers {
+    width: 800px;
+    margin: 0 auto;
+    margin-top: 125px;
+    background-color: #E6E6E6;
+    padding: 10px 50px;
+    border-radius: 10px;
+    opacity: 1;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+@media screen and (max-width: 900px) {
+    .menu-containers {
+        width: 650px;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .menu-containers {
+        width: 500px;
+    }
+}
+
+@media screen and (max-width: 576px) {
+    .menu-containers {
+        width: 400px;
+        padding: 0;
+    }
+}
+
+@media screen and (max-width: 400px) {
+    .menu-containers {
+        width: 300px;
+    }
+}

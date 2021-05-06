@@ -1,0 +1,46 @@
+.schedueled-events-grid {
+    width: 825px;
+    border-radius: 5px;
+    margin: 125px auto;
+    text-align: center;
+}
+
+.schedueled-events-grid h1 {
+    font-family: 'Orelega One', cursive;
+    font-size: 50px;
+    margin-bottom: 70px
+}
+
+@media screen and (max-width: 900px) {
+    .schedueled-events-grid {
+        width: 700px;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .schedueled-events-grid {
+        width: 500px;
+    }
+}
+
+@media screen and (max-width: 576px) {
+    .schedueled-events-grid h1 {
+        font-size: 40px;
+    }
+
+    .schedueled-events-grid {
+        width: 400px;
+    }
+}
+
+@media screen and (max-width: 400px) {
+    .schedueled-events-grid {
+        width: 300px;
+    }
+
+    .schedueled-events-grid h1 {
+        margin-bottom: 40px;
+        font-size: 30px;
+    }
+}
+

@@ -1,0 +1,25 @@
+.about-us {
+    width: 700px;
+    margin: 0 auto;
+    margin-top: 125px;
+}
+
+@media screen and (max-width: 768px) {
+    .about-us {
+        width: 500px;
+    }
+}
+
+@media screen and (max-width: 576px) {
+    .about-us {
+        width: 400px;
+        margin: 0 auto;
+        margin-top: 125px;
+    }
+}
+
+@media screen and (max-width: 400px) {
+    .about-us {
+        width: 300px;
+    }
+}

@@ -1,0 +1,38 @@
+.form-container {
+    width: 400px;
+    margin: 125px auto;
+}
+
+@media screen and (max-width: 400px) {
+    .form-container {
+        width: 300px;
+    }
+}
+
+.form-container h2 {
+    margin-bottom: 50px;
+    text-align: center;
+}
+
+.form-button {
+    color: #fff8f0;
+    font-size: 20px;
+    font-family: 'Orelega One', cursive;
+    padding: 8px 20px;
+    border-radius: 20px;
+    background-color: #392f5a;
+    transition: .2s ease;
+    text-decoration: none;
+}
+
+.form-button:hover {
+    background-color: #4f1df3;
+    color: #fff8f0;
+}
+
+.form-button-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-top: 30px;
+}

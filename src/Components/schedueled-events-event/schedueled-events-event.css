@@ -1,0 +1,231 @@
+.schedueled-events-event {
+    width: 100%;
+    height: 100px;
+    margin: 15px 0;
+    display: flex;
+    border: none;
+    align-items: center;
+}
+
+@media screen and (max-width: 576px) {
+    .schedueled-events-event {
+        height: 75px;
+        margin: 8px 0;
+    }
+}
+
+@media screen and (max-width: 400px) {
+    .schedueled-events-event {
+        height: 65px;
+    }
+}
+
+.schedueled-events-event:focus {
+    outline: 0;
+}
+
+.schedueled-event-info {
+    width: 700px;
+    box-shadow: 1px 1px 4px rgba(30, 30, 30, 0.3);
+    height: 100px;
+    justify-content: flex-start;
+    display: flex;
+    border-radius: 3px;
+    padding: 5px;
+}
+
+@media screen and (max-width: 900px) {
+    .schedueled-event-info {
+        width: 600px;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .schedueled-event-info {
+        width: 425px;
+    }
+}
+
+.schedueled-event-info img {
+    height: 100%;
+    border-radius: 3px;
+}
+
+@media screen and (max-width: 576px) {
+    .schedueled-event-info {
+        height: 75px;
+    }
+}
+
+@media screen and (max-width: 576px) {
+    .schedueled-event-info {
+        height: 65px;
+    }
+}
+
+
+.schedueled-event-date-time {
+    width: 125px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+@media screen and (max-width: 900px) {
+   .schedueled-event-date-time {
+       width: 100px;
+   }
+}
+
+@media screen and (max-width: 768px) {
+   .schedueled-event-date-time {
+       width: 75px;
+   }
+}
+
+.schedueled-event-date-time p {
+    margin: 0;
+    font-weight: 500;
+    font-size: 25px;
+}
+@media screen and (max-width: 576px) {
+   .schedueled-event-date-time p {
+        font-size: 20px;
+    } 
+}
+
+@media screen and (max-width: 400px) {
+    .schedueled-event-date-time p {
+        font-size: 17px;
+    } 
+}
+
+.scehdueled-event-dropdown-a {
+    display: flex;
+    text-decoration: none;
+    color: black;
+}
+
+.scehdueled-event-dropdown-a:hover {
+    text-decoration: none;
+    color: black;
+}
+
+.scehdueled-event-dropdown-a:focus {
+    text-decoration: none;
+    color: black;
+}
+
+.schedueled-event-title-time {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    flex-grow: 2;
+}
+
+.schedueled-event-title-time h4 {
+    font-size: 25px;
+}
+
+.schedueled-event-title-time p {
+    font-size: 17px;
+}
+
+@media screen and (max-width: 576px) {
+    .schedueled-event-title-time h4 {
+        font-size: 20px;
+    }
+
+    .schedueled-event-title-time p {
+        font-size: 14px;
+    }
+}
+
+@media screen and (max-width: 400px) {
+    .schedueled-event-title-time h4 {
+        font-size: 17px;
+    }
+
+    .schedueled-event-title-time p {
+        font-size: 12px;
+    }
+}
+
+.schedueled-event-dropdown {
+    width: 683px;
+    background: rgb(230, 230, 230);
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    padding: 40px;
+    margin-top: 15px;
+    border-radius: 3px;
+    margin: 0;
+}
+
+@media screen and (max-width: 576px) {
+    .schedueled-event-dropdown {
+        padding: 25px;
+    }
+}
+
+@media screen and (max-width: 900px) {
+    .schedueled-event-dropdown {
+        width: 590px;
+        margin-right: 5px;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .schedueled-event-dropdown {
+        width: 415px;
+        margin-right: 5px;
+    }
+}
+
+.schedueled-event-dropdown-info {
+    width: 250px;
+}
+
+.schedueled-event-dropdown-info p{
+    font-size: 20px;
+}
+
+@media screen and (max-width: 576px) {
+    .schedueled-event-dropdown-info p{
+        font-size: 17px;
+    }
+}
+
+.flex-end {
+    display: flex;
+    justify-content: flex-end;
+    /* flex-direction: row-reverse; */
+    width: 825px;
+}
+
+@media screen and (max-width: 900px) {
+    .flex-end {
+        width: 700px;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .flex-end {
+        width: 500px;
+    }
+}
+
+@media screen and (max-width: 576px) {
+    .flex-end {
+        width: 400px;
+    }
+}
+
+@media screen and (max-width: 400px) {
+    .flex-end {
+        width: 300px;
+    }
+}

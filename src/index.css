@@ -1,0 +1,29 @@
+@import url("./Components/Navbar/navbar.css");
+@import url("./Components/Event/event.css");
+@import url("./Components/Events-grid/events-grid.css");
+@import url("./Components/home-card/home-card.css");
+@import url("./Components/home-cards-container/home-cards-container.css");
+@import url("./Components/banner/banner.css");
+@import url("./Components/schedueled-events-event/schedueled-events-event.css");
+@import url("./Components/schedueled-events-grid/schedueled-events-grid.css");
+@import url("./Components/menu-category/menu-category.css");
+@import url("./Components/menu-item/menu-item.css");
+@import url("./Pages/Menu.css");
+@import url("./Components/Modal/modal.css");
+@import url('./Components/About-us-first/about-us-first.css');
+@import url('./Components/reservation-card/reservation-card.css');
+@import url('./Components/Reservations-grid/reservations-grid.css');
+@import url('./Components/reservation-form/reservation-form.css');
+@import url('./Pages/About-us.css');
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-family: "Poppins", sans-serif;
+  background-color: rgb(241, 241, 241);
+  width: 100vw;
+}
