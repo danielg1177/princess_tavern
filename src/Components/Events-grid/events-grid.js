@@ -1,7 +1,9 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import Event from '../Event/event';
 
-const EventsGrid = ({ Event1, Event2 }) => {
+const EventsGrid = () => {
+
+
     return (
         <div className="events-grid">
             <h1>Events</h1>
