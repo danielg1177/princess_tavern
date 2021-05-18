@@ -1,14 +1,24 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react';
 import Event from '../Event/event';
 
 const EventsGrid = () => {
 
+    const [response, setResponse] = useState()
+    useEffect(() => {
+        async function fetchData () {
+        const res = await fetch('http://localhost:3000/api/v1/events', { headers: {
+      "X-Requested-With": "XMLHttpRequest", "Access-Control-Allow-Headers": "*", "Access-Control-Allow-Credentials": "true"
+    }});
+        const json = await res.json();
+        setResponse(json);
+        console.log(response)
+    }}, [])
 
     return (
         <div className="events-grid">
             <h1>Events</h1>
             <div className="events-container">
-                <Event 
+                <Event
                     title="Singles Night"
                     description="We guarntee a 90% chance youre gonna get laid"
                     time="8:00 - 12:00"
@@ -16,7 +26,7 @@ const EventsGrid = () => {
                     dotm="10"
                     url="https://images.unsplash.com/photo-1542326891-50b14105a80b?ixid=MnwxMjA3fDB8MHxzZWFyY2h8NjV8fGJhcnxlbnwwfDB8MHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=60"
                 />
-                <Event 
+                <Event
                     title="Bar Olympics"
                     description="A great night of bar competions like pool, darts and more. Winner gets free drinks for a night"
                     time="9:00 - 2:00"
