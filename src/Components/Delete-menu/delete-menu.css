@@ -10,4 +10,17 @@
     box-shadow: 1px 1px 1px rgba(40,40,40,.2);
     padding: 10px;
     margin-top: 5px;
+    background-color: #F1F1F1;
+}
+
+.delete-left {
+    display: flex;
+    align-items: center;
+}
+
+.delete-right {
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    color: red;
 }

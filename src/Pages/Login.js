@@ -23,7 +23,7 @@ const Login = ({handleLogin, loggedInStatus, handleLogout}) => {
 
     return (
         <div>
-            <Navbar active="login"  loggedInStatus={loggedInStatus} handleLogout={handleLogout} />
+            <Navbar active='login' loggedInStatus={loggedInStatus} handleLogout={handleLogout} />
             {!registration && <LoginForm handleSuccesfulAuth={handleSuccesfulAuth} handleClick={handleClick} />}
             {registration && <Registration handleSuccesfulAuth={handleSuccesfulAuth} handleClick={handleClick} />}
         </div>

@@ -18,6 +18,7 @@
 @import url('./Components/Delete-menu/delete-menu.css');
 @import url('./Pages/About-us.css');
 @import url('./Components/New-event/new-event.css');
+@import url('./Components/Delete-event/delete-event.css');
 
 body {
   margin: 0;

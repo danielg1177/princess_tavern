@@ -28,10 +28,6 @@ const Navbar = ({ active, loggedInStatus, handleLogout }) => {
         }
     }
 
-    const handleLogin = () => {
-
-    }
-
     useEffect(() => {
         toggleActive()
         // eslint-disable-next-line react-hooks/exhaustive-deps

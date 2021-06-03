@@ -9,7 +9,6 @@ const MenuCategory = ({ category }) => {
     useEffect(() => {
             axios.get("http://localhost:3002/menu_items")
                 .then(res => {
-                    console.log(res.data.menu_items)
                     let arr = res.data.menu_items
                     setResponse(arr)
                     console.log(response)

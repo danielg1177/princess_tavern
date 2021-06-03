@@ -35,24 +35,20 @@ const NewMenu = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault()
-        console.log(title)
-        console.log(description)
-        console.log(category)
-        console.log(ingrediants.split(','))
-        console.log(url)
-
-        axios.post("http://localhost:3002/api/v1/menu_items", {
+        axios.post("http://localhost:3002/menu_items", {
             menu_item: {
                 title: title,
                 description: description,
                 category: category,
-                ingrediants: ingrediants.split(','),
+                ingrediants: ingrediants,
                 url: url
             }
+        }, {
+            withCredentials: true
         }).then(response => {
-            console.log("Menu create response", response)
+            console.log(response)
         }).catch(error => {
-            console.log("Menu create error", error)
+            console.log("menu item creation error", error)
         })
     }
 

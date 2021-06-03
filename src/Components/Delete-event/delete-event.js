@@ -2,28 +2,28 @@ import React, { useState, useEffect } from 'react';
 import Accordion from 'react-bootstrap/Accordion';
 import axios from 'axios';
 
-const DeleteMenu = () => {
+const DeleteEvent = () => {
 
     const [response, setResponse] = useState([])
 
     useEffect(() => {
-        axios.get("http://localhost:3002/menu_items")
+        axios.get("http://localhost:3002/events")
             .then(res => {
-                let arr = res.data.menu_items
+                let arr = res.data.events
                 setResponse(arr)
             })
         }, [])
 
     const handleDelete = (id) => {
-        axios.delete(`http://localhost:3002/menu_items/${id}`, 
+        axios.delete(`http://localhost:3002/events/${id}`, 
         { withCredentials: true })
         .then(response => {
-            console.log("menu_item delete response", response)
+            console.log("event delete response", response)
         }).catch(error => {
-            console.log("menu_item delete error", error)
+            console.log("event delete error", error)
         })
-        setResponse(response.filter(item => {
-            return item.id !== id
+        setResponse(response.filter(event => {
+            return event.id !== id
         }))
     }
 
@@ -34,18 +34,18 @@ const DeleteMenu = () => {
                 {/* <a className="scehdueled-event-dropdown-a" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample"> */}
                 <Accordion.Toggle variant="link" eventKey="2" className="admin-acord">
                     <div className="new-event-drop">
-                        <h2>Delete a menu item</h2>
+                        <h2>Delete an event</h2>
                     </div>
                 </Accordion.Toggle>
                 {/* </a> */}
                 {/* <div class="collapse" id="collapseExample"> */}
                 <Accordion.Collapse eventKey="2" className="acord">
                     <div>
-                        {response.map(item => {
+                        {response.map(event => {
                             return (
-                                <div className="delete-card d-flex justify-content-between" key={item.id}>
-                                    <div className="delete-left">{item.title}</div>
-                                    <div className="delete-right" onClick={() => handleDelete(item.id)}><p>Delete</p></div>
+                                <div className="delete-card d-flex justify-content-between" key={event.id}>
+                                    <div className="delete-left">{event.title}</div>
+                                    <div className="delete-right" onClick={() => handleDelete(event.id)}><p>Delete</p></div>
                                 </div>
                             )
                         })}
@@ -57,4 +57,4 @@ const DeleteMenu = () => {
     )
 }
 
-export default DeleteMenu
+export default DeleteEvent
