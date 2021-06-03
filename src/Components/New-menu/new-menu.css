@@ -1,0 +1,12 @@
+.acord form button:focus {
+    color: #fff8f0;
+    font-size: 20px;
+    font-family: 'Orelega One', cursive;
+    padding: 8px 20px;
+    border-radius: 20px;
+    background-color: #392f5a;
+    transition: .2s ease;
+    text-decoration: none;
+    outline: none;
+    box-shadow: none;
+}

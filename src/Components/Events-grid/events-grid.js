@@ -1,39 +1,55 @@
+import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import Event from '../Event/event';
 
 const EventsGrid = () => {
 
-    const [response, setResponse] = useState()
-    useEffect(() => {
-        async function fetchData () {
-        const res = await fetch('http://localhost:3000/api/v1/events', { headers: {
-      "X-Requested-With": "XMLHttpRequest", "Access-Control-Allow-Headers": "*", "Access-Control-Allow-Credentials": "true"
-    }});
-        const json = await res.json();
-        setResponse(json);
-        console.log(response)
-    }}, [])
+    const [response, setResponse] = useState([])
+        const months = [ "Jan", "Feb", "Mar", "Apr", "May", "June", 
+           "July", "Aug", "Sep", "Oct", "Nov", "Dec" ]
+
+        useEffect(() => {
+            axios.get("http://localhost:3002/events")
+                .then(res => {
+                    let firstArr = res.data.events
+                    console.log(firstArr)
+                    let arr = []
+                    firstArr.forEach(obj => {
+                        arr.push({
+                            date: new Date(obj.date), 
+                            start_time: obj.start_time, 
+                            end_time: obj.end_time, 
+                            title: obj.title, 
+                            description: obj.description, 
+                            public: obj.public, 
+                            url: obj.url, 
+                            id: obj.id })
+                    })
+                    let sortedArr = arr.sort((obj1, obj2) => {
+                        return obj1.date - obj2.date
+                    })
+                    sortedArr = sortedArr.slice(0,2)
+                    setResponse(sortedArr)
+                })
+            }, [])
 
     return (
         <div className="events-grid">
             <h1>Events</h1>
             <div className="events-container">
-                <Event
-                    title="Singles Night"
-                    description="We guarntee a 90% chance youre gonna get laid"
-                    time="8:00 - 12:00"
-                    month="Mar"
-                    dotm="10"
-                    url="https://images.unsplash.com/photo-1542326891-50b14105a80b?ixid=MnwxMjA3fDB8MHxzZWFyY2h8NjV8fGJhcnxlbnwwfDB8MHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=60"
-                />
-                <Event
-                    title="Bar Olympics"
-                    description="A great night of bar competions like pool, darts and more. Winner gets free drinks for a night"
-                    time="9:00 - 2:00"
-                    month="Apr"
-                    dotm="7"
-                    url="https://images.unsplash.com/photo-1488923566472-4b2d13a4af3b?ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mjl8fGJhciUyMGdhbWVzfGVufDB8MHwwfHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=60"
-                />
+                {response.map(event => {
+                    return (
+                        <Event
+                            title={event.title}
+                            description={event.description}
+                            time={`${event.start_time} - ${event.end_time}`}
+                            month={months[(event.date.getMonth())]}
+                            dotm={event.date.getDate()}
+                            url={event.url}
+                            id={event.id}
+                        />
+                    )
+                })}
             </div>
         </div>
     )

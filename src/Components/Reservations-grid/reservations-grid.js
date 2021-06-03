@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React from 'react'
 import ReservationCard from '../reservation-card/reservation-card'
 
 const ReservationsGrid = () => {

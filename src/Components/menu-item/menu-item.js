@@ -1,13 +1,13 @@
 import React, { useState } from 'react';
 import Modal from '../Modal/modal'
 
-const MenuItem = ({title, ingrediants, description, url}) => {
+const MenuItem = ({title, ingrediants, description, url, id}) => {
     const [show, setShow] = useState(false);
-
+    console.log(ingrediants)
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
     return (
-        <div className="menu-item-container">
+        <div className="menu-item-container" id={id}>
             <div className="menu-item-closed"  onClick={handleShow}>
                 <div className="menu-item-img" style={{backgroundImage: `url(${url})`}}>
 

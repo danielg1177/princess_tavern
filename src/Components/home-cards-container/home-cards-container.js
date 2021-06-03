@@ -5,7 +5,7 @@ const HomeCardsContainer = ({ arr }) => {
     return (
         <div className="home-cards-container">
             {arr.map((card) => {
-                return <HomeCard path={card.path} name={card.name} num={card.num} img={card.img} />
+                return <HomeCard path={card.path} name={card.name} img={card.img} key={card.id} id={card.id} />
             })}
             {/* <HomeCard path="#" name="Directions" num={2}/> */}
         </div>

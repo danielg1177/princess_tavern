@@ -16,9 +16,7 @@ const Modal = ({ handleClose, title, description, ingrediants, url }) => {
                         </div>
                         <div className="ingrediants">
                             <h4>Ingrediants:</h4>
-                            <ul>
-                                {ingrediants.map(ingrediant => <li>{ingrediant}</li> )}
-                            </ul>
+                            <p>{ingrediants}</p>
                         </div>
                     </div>
                     <div>

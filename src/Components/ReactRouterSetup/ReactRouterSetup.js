@@ -1,5 +1,5 @@
-import React from 'react'
-import { Route, Switch } from 'react-router'
+import React, { useEffect, useState } from 'react'
+import { Router, Route, Switch } from 'react-router-dom'
 import Home from '../../Pages/Home'
 import Menu from '../../Pages/Menu'
 import AboutUs from '../../Pages/About-us'
@@ -7,32 +7,99 @@ import Reservations from '../../Pages/Reservations'
 import SchedueledEvents from '../../Pages/Schedueled-events'
 import Reservation from '../../Pages/Reservations'
 import ReservationFormPage from '../../Pages/Reservation-form-page'
+import Admin from '../../Pages/Admin'
+import Login from '../../Pages/Login'
+import history from '../../Helpers/history';
+import axios from 'axios';
 
 const ReactRouterSetup = () => {
+    const [loggedIn, setLoggedIn] = useState({
+        loggedInStatus: "NOT_LOGGED_IN", 
+        user: {}
+    })
+
+    const handleLogin = (data) => {
+        setLoggedIn({ 
+            loggedInStatus: "LOGGED_IN",
+            user: data.user
+        })
+    }
+
+    const handleLogout = () => {
+        axios.delete("http://localhost:3002/logout", { withCredentials: true }).then(response => {
+            console.log("logout response", response)
+        }).catch(error => {
+            console.log("logout error", error)
+        })
+        setLoggedIn({ 
+            loggedInStatus: "NOT_LOGGED_IN",
+            user: {}
+        })
+    }
+
+    const checkLoginStatus = () => {
+        axios.get("http://localhost:3002/logged_in", { withCredentials: true }).then(response => {
+            if(response.data.logged_in && loggedIn.loggedInStatus === "NOT_LOGGED_IN") {
+                setLoggedIn({
+                    loggedInStatus: "LOGGED_IN",
+                    user: response.data.user
+                })
+            } else if(!response.data.logged_in && loggedIn.loggedInStatus === "LOGGED_IN") {
+               setLoggedIn({
+                    loggedInStatus: "NOT_LOGGED_IN",
+                    user: {}
+                })
+            }
+        }).catch(error => {
+            console.log("login error", error)
+        })
+    }
+
+    useEffect(() => {
+        checkLoginStatus()
+    }, [loggedIn])
+
+
     return (
-        <Switch style={{ width: '100%'}}>
-            <Route exact path="/" style={{ width: '100%'}}>
-                <Home />
-            </Route>
-            <Route path="/about-us">
-                <AboutUs />
-            </Route>
-            <Route path="/menu">
-                <Menu />
-            </Route>
-            <Route path="/reservations">
-                <Reservations />
-            </Route>
-            <Route path="/scheduled-events">
-                <SchedueledEvents />
-            </Route>
-            <Route path="/reservation">
-                <Reservation />
-            </Route>
-            <Route path="/reservation-form-page">
-                <ReservationFormPage />
-            </Route>
-        </Switch>      
+        <Router history={history}>
+            <Switch style={{ width: '100%'}}>
+                <Route exact path="/" style={{ width: '100%'}} render={props => (
+                    <Home {...props} loggedInStatus={loggedIn} handleLogout={handleLogout} />
+                )}>
+                </Route>
+                <Route path="/about-us" render={props => (
+                    <AboutUs {...props} loggedInStatus={loggedIn} handleLogout={handleLogout} />
+                )}>   
+                </Route>
+                <Route path="/menu" render={props => (
+                    <Menu {...props} loggedInStatus={loggedIn} handleLogout={handleLogout} />
+                )}>
+                </Route>
+                <Route path="/reservations" render={props => (
+                    <Reservations {...props} loggedInStatus={loggedIn} handleLogout={handleLogout} />
+                )}>
+                </Route>
+                <Route path="/scheduled-events" render={props => (
+                    <SchedueledEvents {...props} loggedInStatus={loggedIn} handleLogout={handleLogout} />
+                )}>
+                </Route>
+                <Route path="/reservation" render={props => (
+                    <Reservation {...props} loggedInStatus={loggedIn} handleLogout={handleLogout} />
+                )}>
+                </Route>
+                <Route path="/reservation-form-page" render={props => (
+                    <ReservationFormPage {...props} loggedInStatus={loggedIn} handleLogout={handleLogout} />
+                )}>
+                </Route>
+                <Route path="/login">
+                    <Login handleLogin={handleLogin}  loggedInStatus={loggedIn} handleLogout={handleLogout} />
+                </Route>
+                <Route path="/admin" render={props => (
+                    <Admin {...props} loggedInStatus={loggedIn} handleLogout={handleLogout} />
+                )}>
+                </Route>
+            </Switch>      
+        </Router>
     )
 }
 

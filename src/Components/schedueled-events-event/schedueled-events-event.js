@@ -1,5 +1,4 @@
 import React from 'react';
-import pic from '../../images/bar1.jpg';
 import Accordion from 'react-bootstrap/Accordion';
 
 const SchedueledEventsEvent = ({month, dotm, title, time, description, url}) => {
@@ -14,7 +13,7 @@ const SchedueledEventsEvent = ({month, dotm, title, time, description, url}) => 
                         <p className="schedueled-event-date-day">{dotm}</p>
                     </div>
                     <div className="schedueled-event-info">
-                        <img src={url}></img>
+                        <img src={url} alt={title}></img>
                         <div className="schedueled-event-title-time">
                             <h4>{title}</h4>
                             <p>{time}</p>
@@ -40,26 +39,3 @@ const SchedueledEventsEvent = ({month, dotm, title, time, description, url}) => 
 }
 
 export default SchedueledEventsEvent
-
-{/* <Accordion defaultActiveKey="0">
-  <Card>
-    <Card.Header>
-      <Accordion.Toggle as={Button} variant="link" eventKey="0">
-        Click me!
-      </Accordion.Toggle>
-    </Card.Header>
-    <Accordion.Collapse eventKey="0">
-      <Card.Body>Hello! I'm the body</Card.Body>
-    </Accordion.Collapse>
-  </Card>
-  <Card>
-    <Card.Header>
-      <Accordion.Toggle as={Button} variant="link" eventKey="1">
-        Click me!
-      </Accordion.Toggle>
-    </Card.Header>
-    <Accordion.Collapse eventKey="1">
-      <Card.Body>Hello! I'm another body</Card.Body>
-    </Accordion.Collapse>
-  </Card>
-</Accordion> */}

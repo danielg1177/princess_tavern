@@ -8,7 +8,7 @@ const ReservationCard = ({ num, title, button, img, link }) => {
                 <h4>{title}</h4>
                 <Link to={link} className="reservation-form-button">{button}</Link>
             </div>
-            <img src={img} />
+            <img src={img} alt={title} />
         </div>
     )
 }

@@ -2,14 +2,14 @@ import React from 'react'
 import MenuCategory from '../Components/menu-category/menu-category';
 import Navbar from '../Components/Navbar/navbar';
 
-const Menu = () => {
+const Menu = ({loggedInStatus, handleLogout}) => {
 
     return (
         <div className="menu-page">
-            <Navbar active="menu"/>
+            <Navbar active="menu"  loggedInStatus={loggedInStatus} handleLogout={handleLogout} />
             <div className="menu-containers">
-                <MenuCategory title="Appetizers"/>
-                <MenuCategory title="Mains"/>
+                <MenuCategory category="Sides"/>
+                <MenuCategory category="Mains"/>
             </div>
         </div>
     )

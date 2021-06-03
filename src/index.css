@@ -14,7 +14,10 @@
 @import url('./Components/reservation-card/reservation-card.css');
 @import url('./Components/Reservations-grid/reservations-grid.css');
 @import url('./Components/reservation-form/reservation-form.css');
+@import url('./Components/New-menu/new-menu.css');
+@import url('./Components/Delete-menu/delete-menu.css');
 @import url('./Pages/About-us.css');
+@import url('./Components/New-event/new-event.css');
 
 body {
   margin: 0;

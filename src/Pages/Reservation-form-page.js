@@ -2,10 +2,10 @@ import React from 'react'
 import Navbar from '../Components/Navbar/navbar'
 import ReservationForm from '../Components/reservation-form/reservation-form'
 
-const ReservationFormPage = () => {
+const ReservationFormPage = ({ loggedInStatus, handleLogout }) => {
     return (
         <div>
-            <Navbar />
+            <Navbar active="log-in" loggedInStatus={loggedInStatus} handleLogout={handleLogout} />
             <ReservationForm />
         </div>
     )

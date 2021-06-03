@@ -5,7 +5,7 @@ const Banner = () => {
     return (
         <div className="banner-container">
             <div className="banner-info">
-                <img src={logo} className="banner-logo" />
+                <img src={logo} className="banner-logo" alt="Bar" />
                 <div className="banner-description">
                     <h1>Prince's Tavern</h1>
                     <p>Whatever moto or catchphrase or whatever</p>
