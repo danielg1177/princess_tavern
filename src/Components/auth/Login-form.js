@@ -7,7 +7,7 @@ import Button from 'react-bootstrap/Button';
 const LoginForm = ({ handleSuccesfulAuth, handleClick }) => {
     const [email, setEmail] = useState("")
     const [password, setPassword] = useState("")
-    const [loginErrors, setLoginErrors] = useState("")
+    // const [loginErrors, setLoginErrors] = useState("")
 
     const handleSubmit = (e) => {
         e.preventDefault()

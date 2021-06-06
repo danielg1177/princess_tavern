@@ -9,8 +9,8 @@ const Login = ({handleLogin, loggedInStatus, handleLogout}) => {
     const [registration, setRegistration] = useState(false)
 
     const handleSuccesfulAuth = (data) => {
-        history.push('/')
         handleLogin(data)
+        history.push('/')
      }
 
      const handleClick = () => {

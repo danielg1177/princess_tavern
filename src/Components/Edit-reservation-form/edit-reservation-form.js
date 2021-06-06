@@ -1,14 +1,45 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import Form from 'react-bootstrap/Form'
 import Col from 'react-bootstrap/Col'
 import Button from 'react-bootstrap/Button'
 import axios from 'axios';
 import history from '../../Helpers/history'
+import { useParams } from "react-router-dom";
 
-const ReservationForm = ({ loggedInStatus }) => {
+const EditReservationForm = () => {
+
+    const id = useParams()
+    const [reservation, setReservation] = useState({}) 
+
+    useEffect(() => {
+        axios.get("http://localhost:3002/reservations")
+        .then(res => {
+            let fetchedRes = res.data.reservations.find(reservation => {
+                return reservation.id.toString() === id.id
+            })
+            setDate(fetchedRes.date)
+            setTime(fetchedRes.time)
+            setPhoneNumber(fetchedRes.phone_number)
+            setCount(fetchedRes.count)
+            setReservation(fetchedRes)
+        }).catch(err => {
+            console.log("reservations response", err)
+        })
+    }, [])
+
+    const handleDelete = (e) => {
+        axios.delete(`http://localhost:3002/reservations/${id.id}`, 
+        { withCredentials: true })
+        .then(response => {
+            console.log("menu_item delete response", response)
+            history.push('/reservations')
+        }).catch(error => {
+            console.log("menu_item delete error", error)
+        })
+    }
 
     const [date, setDate] = useState('');
-    const [time, setTime] = useState('');
+    const [time, setTime] = useState(null);
     const [phoneNumber, setPhoneNumber] = useState('');
     const [count, setCount] = useState(2);
 
@@ -30,10 +61,9 @@ const ReservationForm = ({ loggedInStatus }) => {
 
 
     const handleSubmit = (e) => {
-        e.preventDefault()
-        axios.post("http://localhost:3002/reservations", {
+        e.preventDefault(reservation.id)
+        axios.patch(`http://localhost:3002/reservations/${reservation.id}`, {
             reservation: {
-                user: loggedInStatus.user.id,
                 phone_number: phoneNumber,
                 date: date,
                 time: time,
@@ -42,11 +72,11 @@ const ReservationForm = ({ loggedInStatus }) => {
         }, {
             withCredentials: true
         }).then(response => {
-            console.log(response)
+            console.log("reservation update", response)
+            history.push('/reservations')
         }).catch(error => {
-            console.log("reservation creation error", error)
+            console.log("reservation update error", error)
         })
-        history.push('/reservations')
     }
 
 
@@ -84,9 +114,12 @@ const ReservationForm = ({ loggedInStatus }) => {
                         <option>10</option>
                     </Form.Control>
                 </Form.Group>
-                <div className="form-button-container">
+                <div className="form-button-container-edit">
+                    <Button className="form-button delete-button-edit" onClick={handleDelete}>
+                        Delete
+                    </Button>
                     <Button className="form-button" type="submit">
-                        Submit
+                        Update
                     </Button>
                 </div>
             </Form>
@@ -94,4 +127,4 @@ const ReservationForm = ({ loggedInStatus }) => {
     )
 }
 
-export default ReservationForm
+export default EditReservationForm

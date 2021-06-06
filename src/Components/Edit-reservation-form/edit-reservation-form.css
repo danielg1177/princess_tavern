@@ -1,0 +1,27 @@
+.delete-button-edit {
+    background-color: tomato;
+    color: #fff8f0;
+    font-size: 20px;
+    font-family: 'Orelega One', cursive;
+    padding: 8px 20px;
+    border-radius: 20px;
+    transition: .2s ease;
+    text-decoration: none;
+    display: inline-block;
+    font-weight: 400;
+    line-height: 1.42857143;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    border: 1px solid transparent;
+}
+
+.delete-button-edit:hover {
+    background-color: red;
+    border: 1px solid transparent;
+}
+
+.form-button-container-edit {
+    display: flex;
+    justify-content: space-around;
+}

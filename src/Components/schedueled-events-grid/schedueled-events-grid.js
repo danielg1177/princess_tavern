@@ -7,6 +7,12 @@ const SchedueledEventsGrid = () => {
            "July", "Aug", "Sep", "Oct", "Nov", "Dec" ]
     const [response, setResponse] = useState([])
 
+    Date.prototype.addDays = function(days) {
+        var date = new Date(this.valueOf());
+        date.setDate(date.getDate() + days);
+        return date;
+    }
+
     useEffect(() => {
             axios.get("http://localhost:3002/events")
                 .then(res => {
@@ -15,14 +21,14 @@ const SchedueledEventsGrid = () => {
                     let arr = []
                     firstArr.forEach(obj => {
                         arr.push({
-                            date: new Date(obj.date), 
+                            date: new Date(obj.date).addDays(1), 
                             start_time: obj.start_time, 
                             end_time: obj.end_time, 
                             title: obj.title, 
                             description: obj.description, 
                             public: obj.public, 
-                            url: obj.url, id: 
-                            obj.url })
+                            url: obj.url, 
+                            id: obj.id })
                     })
                     let sortedArr = arr.sort((obj1, obj2) => {
                         return obj1.date - obj2.date

@@ -11,6 +11,7 @@ import Admin from '../../Pages/Admin'
 import Login from '../../Pages/Login'
 import history from '../../Helpers/history';
 import axios from 'axios';
+import EditReservationForm from '../Edit-reservation-form/edit-reservation-form'
 
 const ReactRouterSetup = () => {
     const [loggedIn, setLoggedIn] = useState({
@@ -57,7 +58,7 @@ const ReactRouterSetup = () => {
 
     useEffect(() => {
         checkLoginStatus()
-    }, [loggedIn])
+    }, [])
 
 
     return (
@@ -96,6 +97,10 @@ const ReactRouterSetup = () => {
                 </Route>
                 <Route path="/admin" render={props => (
                     <Admin {...props} loggedInStatus={loggedIn} handleLogout={handleLogout} />
+                )}>
+                </Route>
+                <Route path="/edit-reservation/:id" render={props => (
+                    <EditReservationForm {...props} loggedInStatus={loggedIn} handleLogout={handleLogout} />
                 )}>
                 </Route>
             </Switch>      

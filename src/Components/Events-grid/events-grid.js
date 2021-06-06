@@ -8,30 +8,36 @@ const EventsGrid = () => {
         const months = [ "Jan", "Feb", "Mar", "Apr", "May", "June", 
            "July", "Aug", "Sep", "Oct", "Nov", "Dec" ]
 
-        useEffect(() => {
-            axios.get("http://localhost:3002/events")
-                .then(res => {
-                    let firstArr = res.data.events
-                    console.log(firstArr)
-                    let arr = []
-                    firstArr.forEach(obj => {
-                        arr.push({
-                            date: new Date(obj.date), 
-                            start_time: obj.start_time, 
-                            end_time: obj.end_time, 
-                            title: obj.title, 
-                            description: obj.description, 
-                            public: obj.public, 
-                            url: obj.url, 
-                            id: obj.id })
-                    })
-                    let sortedArr = arr.sort((obj1, obj2) => {
-                        return obj1.date - obj2.date
-                    })
-                    sortedArr = sortedArr.slice(0,2)
-                    setResponse(sortedArr)
+    Date.prototype.addDays = function(days) {
+        var date = new Date(this.valueOf());
+        date.setDate(date.getDate() + days);
+        return date;
+    }
+
+    useEffect(() => {
+        axios.get("http://localhost:3002/events")
+            .then(res => {
+                let firstArr = res.data.events
+                console.log(firstArr)
+                let arr = []
+                firstArr.forEach(obj => {
+                    arr.push({
+                        date: new Date(obj.date).addDays(1), 
+                        start_time: obj.start_time, 
+                        end_time: obj.end_time, 
+                        title: obj.title, 
+                        description: obj.description, 
+                        public: obj.public, 
+                        url: obj.url, 
+                        id: obj.id })
                 })
-            }, [])
+                let sortedArr = arr.sort((obj1, obj2) => {
+                    return obj1.date - obj2.date
+                })
+                sortedArr = sortedArr.slice(0,2)
+                setResponse(sortedArr)
+            })
+        }, [])
 
     return (
         <div className="events-grid">
