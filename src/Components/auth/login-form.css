@@ -1,0 +1,16 @@
+.form-bottom {
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-end;
+}
+
+.form-bottom p {
+    margin: 0;
+    color: rgb(86, 86, 243);
+    cursor: pointer;
+}
+
+.form-bottom p:hover {
+    color: rgb(48, 48, 248);  
+}
+

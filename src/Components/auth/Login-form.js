@@ -52,13 +52,14 @@ const LoginForm = ({ handleSuccesfulAuth, handleClick }) => {
                     <Form.Control type="password" id="password" name="password" placeholder="Password" value={password} onChange={handlePasswordChange} required />
                 </Form.Group>
                 
-                <div className="form-button-container">
+                <div className="form-button-container form-bottom">
+                    <p onClick={handleClick}>Not Registered?</p>
                     <Button className="form-button" type="submit">
                         Log In
                     </Button>
                 </div>
             </Form>
-            <p onClick={handleClick}>Not Registered?</p>
+            
         </div>
     )
 }

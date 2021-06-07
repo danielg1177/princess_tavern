@@ -60,3 +60,8 @@
 .thirty-three-percent p {
     margin: 0;
 }
+
+.res-edit svg {
+    font-size: 20px;
+    transition: .3s ease;
+}

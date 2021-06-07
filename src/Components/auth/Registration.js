@@ -62,13 +62,13 @@ const Registration = ({ handleSuccesfulAuth, handleClick }) => {
                     <Form.Control type="password" placeholder="Password Confirmation" name="password_confirmation" value={passwordConfirmation} onChange={handlePasswordConfirmationChange} required />
                 </Form.Group>
 
-                <div className="form-button-container">
+                <div className="form-button-container form-bottom">
+                    <p onClick={handleClick}>Already have an account?</p>
                     <Button className="form-button" type="submit">
                         Register
                     </Button>
                 </div>
             </Form>
-            <p onClick={handleClick}>Already have an account?</p>
         </div>
     )
 }

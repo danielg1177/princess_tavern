@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
+import { FaRegEdit } from "react-icons/fa";
 
 const UserReservations = ({ loggedInStatus }) => {
     const months = [ "Jan", "Feb", "Mar", "Apr", "May", "June", 
@@ -41,7 +42,6 @@ const UserReservations = ({ loggedInStatus }) => {
                 return (
                     <div className="user-res">
                         <div className="user-res-left">
-                            {console.log(new Date(reservation.date))}
                             <p>{  months[((new Date(reservation.date)).addDays(1).getMonth())] }</p>
                             <p>{ ((new Date(reservation.date)).addDays(1).getDate()) }</p>
                         </div>
@@ -54,8 +54,8 @@ const UserReservations = ({ loggedInStatus }) => {
                                 <p className="bold">People:</p>
                                 <p>{reservation.count}</p>
                             </div>
-                            <div className="thirty-three-percent">
-                                <Link to={`/edit-reservation/${reservation.id}`}>Edit</Link>
+                            <div className="thirty-three-percent res-edit">
+                                <Link to={`/edit-reservation/${reservation.id}`}><FaRegEdit /></Link>
                             </div>
                         </div>
                     </div>

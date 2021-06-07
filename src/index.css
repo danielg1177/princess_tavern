@@ -21,6 +21,7 @@
 @import url('./Components/Delete-event/delete-event.css');
 @import url('./Components/User-Reservations/user-reservations.css');
 @import url('./Components/Edit-reservation-form/edit-reservation-form.css');
+@import url('./Components/auth/login-form.css');
 
 body {
   margin: 0;
