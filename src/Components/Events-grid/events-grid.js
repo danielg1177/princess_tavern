@@ -22,7 +22,7 @@ const EventsGrid = () => {
                 let arr = []
                 firstArr.forEach(obj => {
                     arr.push({
-                        date: new Date(obj.date).addDays(1), 
+                        date: new Date(parseInt(`${obj.date[0]}${obj.date[1]}${obj.date[2]}${obj.date[3]}`), parseInt(`${obj.date[5]}${obj.date[6]}`), parseInt(`${obj.date[8]}${obj.date[9]}`), parseInt(`${obj.start_time[0]}${obj.start_time[1]}`), parseInt(`${obj.start_time[3]}${obj.start_time[4]}`)), 
                         start_time: obj.start_time, 
                         end_time: obj.end_time, 
                         title: obj.title, 
@@ -49,7 +49,7 @@ const EventsGrid = () => {
                             title={event.title}
                             description={event.description}
                             time={`${event.start_time} - ${event.end_time}`}
-                            month={months[(event.date.getMonth())]}
+                            month={months[(event.date.getMonth()) - 1]}
                             dotm={event.date.getDate()}
                             url={event.url}
                             id={event.id}

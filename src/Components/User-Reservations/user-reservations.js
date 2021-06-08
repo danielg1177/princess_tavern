@@ -19,51 +19,63 @@ const UserReservations = ({ loggedInStatus }) => {
         if (loggedInStatus.loggedInStatus === "LOGGED_IN"){
             axios.get("http://localhost:3002/reservations")
                 .then(res => {
-                    let resArr = res.data.reservations.filter(reservation => {
+                    let firstArr = res.data.reservations.filter(reservation => {
                         return reservation.user_id === loggedInStatus.user.id
                     })
-                    setUserReservationsArr(resArr)
-                    if(resArr.length > 1) {
-                        let sortedArr = resArr.sort((obj1, obj2) => {
-                            return obj1.date - obj2.date
+                    let arr = []
+                    firstArr.forEach(obj => {
+                        arr.push({
+                            date: new Date(parseInt(`${obj.date[0]}${obj.date[1]}${obj.date[2]}${obj.date[3]}`), parseInt(`${obj.date[5]}${obj.date[6]}`), parseInt(`${obj.date[8]}${obj.date[9]}`), parseInt(`${obj.time[0]}${obj.time[1]}`), parseInt(`${obj.time[3]}${obj.time[4]}`)), 
+                            time: obj.time, 
+                            phone_number: obj.phone_number, 
+                            count: obj.count, 
+                            id: obj.id })
                         })
-                        setUserReservationsArr(sortedArr)
-                    }
+                        let sortedArr = arr.sort((obj1, obj2) => {
+                            return obj1.date - obj2.date
+                    })
+                    setUserReservationsArr(sortedArr)
                 }).catch(err => {
                     console.log("reservations response", err)
-                })
+            })
         }
     }, [])
 
-    return (
-        <div className="user-res-container">
-            <h2>Upcoming Reservations</h2>
-            {userReservationsArr.map(reservation => {
-                return (
-                    <div className="user-res">
-                        <div className="user-res-left">
-                            <p>{  months[((new Date(reservation.date)).addDays(1).getMonth())] }</p>
-                            <p>{ ((new Date(reservation.date)).addDays(1).getDate()) }</p>
+    if(userReservationsArr.length > 0){
+        return (
+            <div className="user-res-container">
+                <h2>Your Upcoming Reservations</h2>
+                {userReservationsArr.map(reservation => {
+                    return (
+                        <div className="user-res">
+                            <div className="user-res-left">
+                                <p>{  months[((reservation.date).getMonth()) - 1] }</p>
+                                <p>{ ((reservation.date).getDate()) }</p>
+                            </div>
+                            <div className="user-res-right">
+                                <div className="thirty-three-percent">
+                                    <p className="bold">Time:</p>
+                                    <p>{reservation.time}</p>
+                                </div>
+                                <div className="thirty-three-percent">
+                                    <p className="bold">People:</p>
+                                    <p>{reservation.count}</p>
+                                </div>
+                                <div className="thirty-three-percent res-edit">
+                                    <Link to={`/edit-reservation/${reservation.id}`}><FaRegEdit /></Link>
+                                </div>
+                            </div>
                         </div>
-                        <div className="user-res-right">
-                            <div className="thirty-three-percent">
-                                <p className="bold">Time:</p>
-                                <p>{reservation.time}</p>
-                            </div>
-                            <div className="thirty-three-percent">
-                                <p className="bold">People:</p>
-                                <p>{reservation.count}</p>
-                            </div>
-                            <div className="thirty-three-percent res-edit">
-                                <Link to={`/edit-reservation/${reservation.id}`}><FaRegEdit /></Link>
-                            </div>
-                        </div>
-                    </div>
-                )
-            })}
-            
-        </div>
-    )
+                    )
+                })}
+                
+            </div>
+        )
+    } else {
+        return (
+            <></>
+        )
+    }
 }
 
 export default UserReservations

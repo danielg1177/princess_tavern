@@ -24,3 +24,7 @@
     align-items: center;
     color: red;
 }
+
+.delete-right p{
+    margin: 0;
+}

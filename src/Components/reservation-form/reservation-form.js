@@ -43,10 +43,10 @@ const ReservationForm = ({ loggedInStatus }) => {
             withCredentials: true
         }).then(response => {
             console.log(response)
+            history.push('/reservations')
         }).catch(error => {
             console.log("reservation creation error", error)
         })
-        history.push('/reservations')
     }
 
 

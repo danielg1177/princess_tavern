@@ -78,9 +78,10 @@ p.link {
 @media screen and (max-width: 1050px) {
   .link {
     letter-spacing: 1;
+    font-size: 14px;
   }
   .navbar-list li {
-    padding: 0 14px;
+    padding: 0 13px;
   }
 }
 
@@ -89,7 +90,7 @@ p.link {
     letter-spacing: 0;
   }
   .navbar-list li {
-    padding: 0 10px;
+    padding: 0 11px;
   }
 }
 

@@ -36,6 +36,7 @@ const ReactRouterSetup = () => {
             loggedInStatus: "NOT_LOGGED_IN",
             user: {}
         })
+        history.push('/')
     }
 
     const checkLoginStatus = () => {

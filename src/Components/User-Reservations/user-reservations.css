@@ -14,9 +14,21 @@
     flex-direction: column;
 }
 
+@media screen and (max-width: 576px) {
+    .user-res-left {
+        width: 20%;
+    }
+}
+
 .user-res-left p {
     margin: 0;
     font-size: 17px;
+}
+
+@media screen and (max-width: 576px) {
+    .user-res-left p {
+        font-size: 15px;
+    }
 }
 
 .user-res-right {
@@ -25,6 +37,12 @@
     border-radius: 5px;
     height: 100%;
     display: flex;
+}
+
+@media screen and (max-width: 576px) {
+    .user-res-right {
+        width: 80%;
+    }
 }
 
 .user-res-container {
@@ -36,8 +54,32 @@
     padding-bottom: 25px;
 }
 
+@media screen and (max-width: 900px) {
+    .user-res-container {
+        width: 500px;
+    }
+}
+
+@media screen and (max-width: 576px) {
+    .user-res-container {
+        width: 400px;
+    }
+}
+
+@media screen and (max-width: 400px) {
+    .user-res-container {
+        width: 300px;
+    }
+}
+
 .user-res-container h2 {
     font-size: 25px;
+}
+
+@media screen and (max-width: 576px) {
+   .user-res-container h2 {
+        font-size: 22px;
+    } 
 }
 
 .user-reservations h1 {
