@@ -4,7 +4,7 @@ import Form from 'react-bootstrap/Form';
 import Col from 'react-bootstrap/Col';
 import Button from 'react-bootstrap/Button';
 
-const Registration = ({ handleSuccesfulAuth, handleClick }) => {
+const Registration = ({ handleSuccesfulAuth, handleToggleClick }) => {
     const [email, setEmail] = useState("")
     const [password, setPassword] = useState("")
     const [passwordConfirmation, setPasswordConfirmation] = useState("")
@@ -63,7 +63,7 @@ const Registration = ({ handleSuccesfulAuth, handleClick }) => {
                 </Form.Group>
 
                 <div className="form-button-container form-bottom">
-                    <p onClick={handleClick}>Already have an account?</p>
+                    <p onClick={handleToggleClick}>Already have an account?</p>
                     <Button className="form-button" type="submit">
                         Register
                     </Button>

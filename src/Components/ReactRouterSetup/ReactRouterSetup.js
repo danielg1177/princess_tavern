@@ -12,6 +12,7 @@ import Login from '../../Pages/Login'
 import history from '../../Helpers/history';
 import axios from 'axios';
 import EditReservationForm from '../Edit-reservation-form/edit-reservation-form'
+import ForgottenPassword from '../../Pages/Forgotten-password'
 
 const ReactRouterSetup = () => {
     const [loggedIn, setLoggedIn] = useState({
@@ -102,6 +103,10 @@ const ReactRouterSetup = () => {
                 </Route>
                 <Route path="/edit-reservation/:id" render={props => (
                     <EditReservationForm {...props} loggedInStatus={loggedIn} handleLogout={handleLogout} />
+                )}>
+                </Route>
+                <Route path="/forgotten" render={props => (
+                    <ForgottenPassword {...props} loggedInStatus={loggedIn} handleLogout={handleLogout} />
                 )}>
                 </Route>
             </Switch>      

@@ -3,8 +3,9 @@ import axios from 'axios';
 import Form from 'react-bootstrap/Form';
 import Col from 'react-bootstrap/Col';
 import Button from 'react-bootstrap/Button';
+import { Link } from 'react-router-dom';
 
-const LoginForm = ({ handleSuccesfulAuth, handleClick }) => {
+const LoginForm = ({ handleSuccesfulAuth, handleToggleClick }) => {
     const [email, setEmail] = useState("")
     const [password, setPassword] = useState("")
     // const [loginErrors, setLoginErrors] = useState("")
@@ -53,7 +54,10 @@ const LoginForm = ({ handleSuccesfulAuth, handleClick }) => {
                 </Form.Group>
                 
                 <div className="form-button-container form-bottom">
-                    <p onClick={handleClick}>Not Registered?</p>
+                    <div>
+                        <p onClick={handleToggleClick}>Not Registered?</p>
+                        <Link to='/forgotten'>Forgot Password?</Link>
+                    </div>
                     <Button className="form-button" type="submit">
                         Log In
                     </Button>

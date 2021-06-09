@@ -8,12 +8,6 @@ const EventsGrid = () => {
         const months = [ "Jan", "Feb", "Mar", "Apr", "May", "June", 
            "July", "Aug", "Sep", "Oct", "Nov", "Dec" ]
 
-    Date.prototype.addDays = function(days) {
-        var date = new Date(this.valueOf());
-        date.setDate(date.getDate() + days);
-        return date;
-    }
-
     useEffect(() => {
         axios.get("http://localhost:3002/events")
             .then(res => {

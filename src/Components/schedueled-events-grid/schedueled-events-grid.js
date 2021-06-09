@@ -7,12 +7,6 @@ const SchedueledEventsGrid = () => {
            "July", "Aug", "Sep", "Oct", "Nov", "Dec" ]
     const [response, setResponse] = useState([])
 
-    Date.prototype.addDays = function(days) {
-        var date = new Date(this.valueOf());
-        date.setDate(date.getDate() + days);
-        return date;
-    }
-
     useEffect(() => {
             axios.get("http://localhost:3002/events")
                 .then(res => {
@@ -44,6 +38,7 @@ const SchedueledEventsGrid = () => {
                     return (
                         <SchedueledEventsEvent
                             title={event.title}
+                            id={event.id}
                             description={event.description}
                             time={`${event.start_time} - ${event.end_time}`}
                             month={months[(event.date.getMonth()) - 1]}

@@ -13,7 +13,7 @@ const Login = ({handleLogin, loggedInStatus, handleLogout}) => {
         history.push('/')
      }
 
-     const handleClick = () => {
+     const handleToggleClick = () => {
          if(registration === false) {
              setRegistration(true)
          } else {
@@ -24,8 +24,8 @@ const Login = ({handleLogin, loggedInStatus, handleLogout}) => {
     return (
         <div>
             <Navbar active='login' loggedInStatus={loggedInStatus} handleLogout={handleLogout} />
-            {!registration && <LoginForm handleSuccesfulAuth={handleSuccesfulAuth} handleClick={handleClick} />}
-            {registration && <Registration handleSuccesfulAuth={handleSuccesfulAuth} handleClick={handleClick} />}
+            {!registration && <LoginForm handleSuccesfulAuth={handleSuccesfulAuth} handleToggleClick={handleToggleClick} />}
+            {registration && <Registration handleSuccesfulAuth={handleSuccesfulAuth} handleToggleClick={handleToggleClick} />}
         </div>
     )
 }

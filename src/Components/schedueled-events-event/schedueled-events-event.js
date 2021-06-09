@@ -1,10 +1,10 @@
 import React from 'react';
 import Accordion from 'react-bootstrap/Accordion';
 
-const SchedueledEventsEvent = ({month, dotm, title, time, description, url}) => {
+const SchedueledEventsEvent = ({month, dotm, title, time, description, url, id}) => {
 
     return (
-        <Accordion>
+        <Accordion key={id}>
             <div>
                 {/* <a className="scehdueled-event-dropdown-a" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample"> */}
                 <Accordion.Toggle variant="link" eventKey="0" className="schedueled-events-event">

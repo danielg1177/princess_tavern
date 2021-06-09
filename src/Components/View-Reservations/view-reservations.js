@@ -9,17 +9,10 @@ const ViewReservations = () => {
     const months = [ "Jan", "Feb", "Mar", "Apr", "May", "June", 
            "July", "Aug", "Sep", "Oct", "Nov", "Dec" ]
 
-    Date.prototype.addDays = function(days) {
-        var date = new Date(this.valueOf());
-        date.setDate(date.getDate() + days);
-        return date;
-    }
-
     useEffect(() => {   
         axios.get("http://localhost:3002/reservations")
             .then(res => {
                 let firstArr = res.data.reservations
-                console.log(res.data.reservations)
                 let arr = []
                 firstArr.forEach(obj => {
                     arr.push({
@@ -50,7 +43,7 @@ const ViewReservations = () => {
                     <div>
                         {reservations.map(reservation => {
                             return (
-                                <div className="user-res">
+                                <div className="user-res" key={reservation.id}>
                                     <div className="user-res-left">
                                         <p>{  months[((new Date(reservation.date)).getMonth()) - 1] }</p>
                                         <p>{ ((new Date(reservation.date)).getDate()) }</p>

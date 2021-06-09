@@ -9,12 +9,6 @@ const UserReservations = ({ loggedInStatus }) => {
 
     const [userReservationsArr, setUserReservationsArr] = useState([])
 
-    Date.prototype.addDays = function(days) {
-        var date = new Date(this.valueOf());
-        date.setDate(date.getDate() + days);
-        return date;
-    }
-
     useEffect(() => {
         if (loggedInStatus.loggedInStatus === "LOGGED_IN"){
             axios.get("http://localhost:3002/reservations")
@@ -47,7 +41,7 @@ const UserReservations = ({ loggedInStatus }) => {
                 <h2>Your Upcoming Reservations</h2>
                 {userReservationsArr.map(reservation => {
                     return (
-                        <div className="user-res">
+                        <div className="user-res" key={reservation.id}>
                             <div className="user-res-left">
                                 <p>{  months[((reservation.date).getMonth()) - 1] }</p>
                                 <p>{ ((reservation.date).getDate()) }</p>
@@ -73,7 +67,9 @@ const UserReservations = ({ loggedInStatus }) => {
         )
     } else {
         return (
-            <></>
+            <div>
+                <h2>Reservations</h2>
+            </div>
         )
     }
 }

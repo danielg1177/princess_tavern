@@ -23,6 +23,8 @@
 @import url('./Components/Edit-reservation-form/edit-reservation-form.css');
 @import url('./Components/auth/login-form.css');
 @import url('./Components/View-Reservations/view-reservations.css');
+@import url('./Components/Forgotten-form/forgotten-form.css');
+@import url('./Components/Forgotten-response/forgotten-response.css');
 
 body {
   margin: 0;

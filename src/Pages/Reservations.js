@@ -3,12 +3,10 @@ import Navbar from '../Components/Navbar/navbar';
 import ReservationsGrid from '../Components/Reservations-grid/reservations-grid';
 import HomeCardsContainer from '../Components/home-cards-container/home-cards-container'
 import UserReservations from '../Components/User-Reservations/user-reservations';
-import axios from 'axios';
 
 const Reservations = ({ loggedInStatus, handleLogout }) => {
     const width = window.innerWidth;
-    const breakpoint = 768
-    const [userReservations, setUserReservations] = useState([])
+    const breakpoint = 768;
     
 
     const arr = [{ path: "/reservation-form-page", name: "Reserve", num: 1, img: 'https://images.unsplash.com/photo-1599635347301-07527a97e718?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8cmVzZXJ2ZWR8ZW58MHx8MHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=60' }, 
@@ -18,7 +16,6 @@ const Reservations = ({ loggedInStatus, handleLogout }) => {
         <div>
             <Navbar active="reservations" handleLogout={handleLogout} loggedInStatus={loggedInStatus} />
             <div className="margin-top">
-                <h2>Reservations</h2>
                 { <UserReservations loggedInStatus={loggedInStatus} /> }
                 { width > breakpoint ? <ReservationsGrid /> : <HomeCardsContainer arr={arr}/> }
             </div> 
