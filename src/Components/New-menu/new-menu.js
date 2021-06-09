@@ -12,6 +12,20 @@ const NewMenu = () => {
     const [category, setCategory] = useState("")
     const [ingrediants, setIngrediants] = useState("")
     const [url, setUrl] = useState("")
+    const [titleErr, setTitleErr] = useState(false);
+    const [descriptionErr, setDescriptionErr] = useState(false);
+    const [ingrediantsErr, setIngrediantsErr] = useState(false);
+
+    const validTitle = new RegExp(".+");
+    const validDescription = new RegExp(".+");
+    const validIngrediants = new RegExp(".+");
+
+    const checkValidations = () => {
+        if(validTitle.test(title) && validDescription.test(description) && validIngrediants.test(ingrediants)) {
+            return true
+        }
+        return false
+    }
 
     const handleTitleChange = (e) => {
         setTitle(e.target.value)
@@ -35,21 +49,27 @@ const NewMenu = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault()
-        axios.post("http://localhost:3002/menu_items", {
-            menu_item: {
-                title: title,
-                description: description,
-                category: category,
-                ingrediants: ingrediants,
-                url: url
-            }
-        }, {
-            withCredentials: true
-        }).then(response => {
-            console.log(response)
-        }).catch(error => {
-            console.log("menu item creation error", error)
-        })
+        if(checkValidations()){
+            axios.post("http://localhost:3002/menu_items", {
+                menu_item: {
+                    title: title,
+                    description: description,
+                    category: category,
+                    ingrediants: ingrediants,
+                    url: url
+                }
+            }, {
+                withCredentials: true
+            }).then(response => {
+                console.log(response)
+            }).catch(error => {
+                console.log("menu item creation error", error)
+            })
+        } else {
+            validTitle.test(title) ? setTitleErr(false) : setTitleErr(true);
+            validDescription.test(description) ? setDescriptionErr(false) : setDescriptionErr(true);
+            validIngrediants.test(ingrediants) ? setIngrediantsErr(false) : setIngrediantsErr(true);
+        }
     }
 
     return (
@@ -68,22 +88,25 @@ const NewMenu = () => {
                     <Form onSubmit={handleSubmit}>
                         <Form.Group as={Col} controlId="formGridEmail">
                             <Form.Label>Title</Form.Label>
-                            <Form.Control type="text" name="title" placeholder="Name of menu item" onChange={handleTitleChange} value={title} />
+                            <Form.Control type="text" name="title" placeholder="Name of menu item" className={ titleErr ? "invalid" : ""} onChange={handleTitleChange} value={title} />
+                            { titleErr ? <p className="invalid-text">title can not be empty</p> : ""}
                         </Form.Group>
 
                         <Form.Group as={Col} controlId="formGridPassword">
                             <Form.Label>Description</Form.Label>
-                            <Form.Control type="text" name="description" placeholder="Description" onChange={handleDescriptionChange} value={description} />
+                            <Form.Control type="text" name="description" placeholder="Description" className={ descriptionErr ? "invalid" : ""} onChange={handleDescriptionChange} value={description} />
+                            { descriptionErr ? <p className="invalid-text">description can not be empty</p> : ""}
                         </Form.Group>
 
                         <Form.Group as={Col} controlId="formGridEmail">
                             <Form.Label>Ingrediants (seprate each ingrediant with a comma and a space)</Form.Label>
-                            <Form.Control type="text" placeholder="pickels, lettuce, chicken" name="date" onChange={handleIngrediantsChange} value={ingrediants} />
+                            <Form.Control type="text" placeholder="pickels, lettuce, chicken" className={ ingrediantsErr ? "invalid" : ""} name="date" onChange={handleIngrediantsChange} value={ingrediants} />
+                            { ingrediantsErr ? <p className="invalid-text">ingrediants can not be empty</p> : ""}
                         </Form.Group>
 
                         <Form.Group as={Col} controlId="formGridState">
                             <Form.Label>Category</Form.Label>
-                            <Form.Control as="select" defaultValue="public" name="public" onChange={handleCategoryChange} value={category}>
+                            <Form.Control as="select" defaultValue="public" name="public" onChange={handleCategoryChange} value={category} required>
                                 <option>Sides</option>
                                 <option>Mains</option>
                             </Form.Control>

@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 
 const Event = ({title, description, time, month, dotm, url, id}) => {
     return (
-        <Link id={id} to="/scheduled-events" className='event-container' style={{backgroundImage: `url(${url})`}}>
+        <Link key={id} to="/scheduled-events" className='event-container' style={{backgroundImage: `url(${url})`}}>
             <div className="event-title">
                 <h3>{title}</h3>
             </div>

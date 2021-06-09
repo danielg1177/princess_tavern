@@ -55,24 +55,24 @@ const ReservationForm = ({ loggedInStatus }) => {
             <h2>Reservation Form</h2>
             <Form onSubmit={handleSubmit}>
 
-                <Form.Group as={Col} controlId="formGridEmail">
+                <Form.Group as={Col} >
                     <Form.Label>Date of reservation</Form.Label>
-                    <Form.Control type="date" placeholder="Enter Reservation Date" value={date} onChange={handleDateChange} name="reservation-date" />
+                    <Form.Control type="date" placeholder="Enter Reservation Date" value={date} onChange={handleDateChange} name="reservation-date" required />
                 </Form.Group>
 
-                <Form.Group as={Col} controlId="formGridPassword">
+                <Form.Group as={Col}>
                     <Form.Label>Time of reservation</Form.Label>
-                    <Form.Control type="time" placeholder="Time of reservation" value={time} onChange={handleTimeChange} />
+                    <Form.Control type="time" placeholder="Time of reservation" value={time} onChange={handleTimeChange} required />
                 </Form.Group>
 
-                <Form.Group as={Col} controlId="formGridPassword">
+                <Form.Group as={Col}>
                     <Form.Label>Phone Number</Form.Label>
-                    <Form.Control type="tel" id="phone" name="phone" value={phoneNumber} onChange={handleNumberChange} pattern="[0-9]{10}" placeholder="0585555555" />
+                    <Form.Control type="tel" id="phone" name="phone" value={phoneNumber} onChange={handleNumberChange} pattern="[0-9]{10}" placeholder="0585555555" required />
                 </Form.Group>
 
-                <Form.Group as={Col} controlId="formGridState">
+                <Form.Group as={Col} >
                     <Form.Label>Number of people</Form.Label>
-                    <Form.Control as="select" defaultValue="2" onChange={handleCountChange} value={count}>
+                    <Form.Control as="select" onChange={handleCountChange} value={count} required>
                         <option>2</option>
                         <option>3</option>
                         <option>4</option>

@@ -9,7 +9,11 @@ import { useParams } from "react-router-dom";
 const EditReservationForm = () => {
 
     const id = useParams()
-    const [reservation, setReservation] = useState({}) 
+    const [reservation, setReservation] = useState({});
+    const [date, setDate] = useState('');
+    const [time, setTime] = useState(null);
+    const [phoneNumber, setPhoneNumber] = useState('');
+    const [count, setCount] = useState(2);
 
     useEffect(() => {
         axios.get("http://localhost:3002/reservations")
@@ -38,10 +42,9 @@ const EditReservationForm = () => {
         })
     }
 
-    const [date, setDate] = useState('');
-    const [time, setTime] = useState(null);
-    const [phoneNumber, setPhoneNumber] = useState('');
-    const [count, setCount] = useState(2);
+    const checkValidations = () => {
+
+    }
 
     const handleDateChange = (e) => {
         setDate(e.target.value)
@@ -82,17 +85,17 @@ const EditReservationForm = () => {
 
     return (
         <div className="form-container">
-            <h2>Reservation Form</h2>
+            <h2>Update Reservation Form</h2>
             <Form onSubmit={handleSubmit}>
 
                 <Form.Group as={Col} controlId="formGridEmail">
                     <Form.Label>Date of reservation</Form.Label>
-                    <Form.Control type="date" placeholder="Enter Reservation Date" value={date} onChange={handleDateChange} name="reservation-date" />
+                    <Form.Control type="date" placeholder="Enter Reservation Date" value={date} onChange={handleDateChange} name="reservation-date" required />
                 </Form.Group>
 
                 <Form.Group as={Col} controlId="formGridPassword">
                     <Form.Label>Time of reservation</Form.Label>
-                    <Form.Control type="time" placeholder="Time of reservation" value={time} onChange={handleTimeChange} />
+                    <Form.Control type="time" placeholder="Time of reservation" value={time} onChange={handleTimeChange} required />
                 </Form.Group>
 
                 <Form.Group as={Col} controlId="formGridPassword">
@@ -102,7 +105,7 @@ const EditReservationForm = () => {
 
                 <Form.Group as={Col} controlId="formGridState">
                     <Form.Label>Number of people</Form.Label>
-                    <Form.Control as="select" defaultValue="2" onChange={handleCountChange} value={count}>
+                    <Form.Control as="select" onChange={handleCountChange} value={count} required>
                         <option>2</option>
                         <option>3</option>
                         <option>4</option>

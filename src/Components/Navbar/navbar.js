@@ -53,8 +53,8 @@ const Navbar = ({ active, loggedInStatus, handleLogout }) => {
                     <li className="nav-item"><Link className={isActiveAboutUs ? `active link${isNavOpen ? " animate" : ""}` : `link${isNavOpen ? " animate" : ""}`} to="/about-us">About Us</Link></li>
                     <li className="nav-item"><Link className={isActiveScheduledEvents ? `active link${isNavOpen ? " animate" : ""}` : `link${isNavOpen ? " animate" : ""}`} to="/scheduled-events">Scheduled Events</Link></li>
                     <li className="nav-item"><Link className={isActiveReservations ? `active link${isNavOpen ? " animate" : ""}` : `link${isNavOpen ? " animate" : ""}`} to="/reservations">Reservations</Link></li>
-                    {loggedInStatus.loggedInStatus === "NOT_LOGGED_IN" && <li classname="nav-item"><Link className={isLogIn ? `active link${isNavOpen ? " animate" : ""}` : `link${isNavOpen ? " animate" : ""}`} to="/login">Sign In</Link></li>}
-                    {loggedInStatus.loggedInStatus === "LOGGED_IN" && <li classname="nav-item"><p onClick={handleLogout} className={`link${isNavOpen ? " animate" : ""} logout-nav`}>Sign Out</p></li>}
+                    {loggedInStatus.loggedInStatus === "NOT_LOGGED_IN" && <li className="nav-item"><Link className={isLogIn ? `active link${isNavOpen ? " animate" : ""}` : `link${isNavOpen ? " animate" : ""}`} to="/login">Sign In</Link></li>}
+                    {loggedInStatus.loggedInStatus === "LOGGED_IN" && <li className="nav-item"><p onClick={handleLogout} className={`link${isNavOpen ? " animate" : ""} logout-nav`}>Sign Out</p></li>}
                 </ul>
                 <div className={isNavOpen ? 'burger' : 'burger'} onClick={navSlide}>
                     <div className={isNavOpen ? "line1 toggle" : "line1"}></div>

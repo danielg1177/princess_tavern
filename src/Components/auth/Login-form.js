@@ -8,25 +8,40 @@ import { Link } from 'react-router-dom';
 const LoginForm = ({ handleSuccesfulAuth, handleToggleClick }) => {
     const [email, setEmail] = useState("")
     const [password, setPassword] = useState("")
+    const [emailErr, setEmailErr] = useState(false);
+    const [pwdError, setPwdError] = useState(false);
     // const [loginErrors, setLoginErrors] = useState("")
+    const validEmail = new RegExp('^[a-zA-Z0-9._:$!%-]+@[a-zA-Z0-9.-]+.[a-zA-Z]$');
+    const validPassword = new RegExp(".{6,}");
 
     const handleSubmit = (e) => {
         e.preventDefault()
-        axios.post("http://localhost:3002/sessions", {
-            user: {
-                password: password,
-                email: email,
-            }
-        }, {
-            withCredentials: true
-        }).then(response => {
-            console.log(response)
-            if (response.data.status === "created") {
-                handleSuccesfulAuth(response.data)
-            }
-        }).catch(error => {
-            console.log("login error", error)
-        })
+        if(validEmail.test(email) && validPassword.test(password)){
+            axios.post("http://localhost:3002/sessions", {
+                user: {
+                    password: password,
+                    email: email,
+                }
+            }, {
+                withCredentials: true
+            }).then(response => {
+                console.log(response)
+                if (response.data.status === "created") {
+                    handleSuccesfulAuth(response.data)
+                }
+            }).catch(error => {
+                console.log("login error", error)
+            })
+        } else if(!validEmail.test(email) && !validPassword.test(password)){
+            setEmailErr(true);
+            setPwdError(true);
+        } else if(!validEmail.test(email)){
+            setEmailErr(true);
+            setPwdError(false);
+        } else {
+            setPwdError(true);
+            setEmailErr(false);
+        }
     }
 
     const handleEmailChange = (e) => {
@@ -45,18 +60,20 @@ const LoginForm = ({ handleSuccesfulAuth, handleToggleClick }) => {
              <Form onSubmit={handleSubmit}>
                 <Form.Group as={Col} controlId="formGridEmail">
                     <Form.Label>Email</Form.Label>
-                    <Form.Control type="email" placeholder="Email" value={email} onChange={handleEmailChange} required />
+                    <Form.Control type="text" placeholder="Email" value={email} className={ emailErr ? "invalid" : ""} onChange={handleEmailChange} />
+                    { emailErr ? <p className="invalid-text">must be a valid email</p> : ""}
                 </Form.Group>
 
                 <Form.Group as={Col} controlId="formGridPassword">
                     <Form.Label>Password</Form.Label>
-                    <Form.Control type="password" id="password" name="password" placeholder="Password" value={password} onChange={handlePasswordChange} required />
+                    <Form.Control type="password" id="password" name="password" className={ pwdError ? "invalid" : ""} placeholder="Password" value={password} onChange={handlePasswordChange} />
+                    { pwdError ? <p className="invalid-text">password must be 6 characters</p> : ""}
                 </Form.Group>
                 
                 <div className="form-button-container form-bottom">
                     <div>
-                        <p onClick={handleToggleClick}>Not Registered?</p>
-                        <Link to='/forgotten'>Forgot Password?</Link>
+                        <p onClick={handleToggleClick} className="purple">Not Registered?</p>
+                        <Link to='/forgotten' className="purple">Forgot Password?</Link>
                     </div>
                     <Button className="form-button" type="submit">
                         Log In

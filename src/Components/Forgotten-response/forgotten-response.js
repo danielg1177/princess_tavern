@@ -9,9 +9,11 @@ import history from '../../Helpers/history';
 const ForgottenResponse = ({ code, email }) => {
 
     const [userInput, setUserInput] = useState('');
-    const [userConfirmed, setUserConfirmed] = useState(false)
-    const [password, setPassword] = useState("")
-    const [passwordConfirmation, setPasswordConfirmation] = useState("")
+    const [userConfirmed, setUserConfirmed] = useState(false);
+    const [password, setPassword] = useState("");
+    const [passwordConfirmation, setPasswordConfirmation] = useState("");
+
+    const [codeErr, setCodeErr] = useState(false)
 
     const handleUserInputChange = (e) => {
         setUserInput(e.target.value)
@@ -30,7 +32,7 @@ const ForgottenResponse = ({ code, email }) => {
         if(userInput === code){ 
             setUserConfirmed(true)
         } else {
-            console.log(false)
+            setCodeErr(true)
         }
     }
 
@@ -58,7 +60,8 @@ const ForgottenResponse = ({ code, email }) => {
             <Form onSubmit={handleCodeSubmit}>
                 <Form.Group as={Col} controlId="formGridEmail">
                     <Form.Label>Code</Form.Label>
-                    <Form.Control type="text" placeholder="Code" value={userInput} onChange={handleUserInputChange} required />
+                    <Form.Control type="text" placeholder="Code" className={ codeErr ? "invalid" : ""} value={userInput} onChange={handleUserInputChange} />
+                    { codeErr ? <p className="invalid-text">Code does not match</p> : ""}
                 </Form.Group>
                 
                 <div className="form-button-container form-bottom">

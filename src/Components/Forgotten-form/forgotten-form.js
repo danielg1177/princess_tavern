@@ -7,28 +7,36 @@ import { Link } from 'react-router-dom';
 
 const ForgottenForm = ({ code, handleCodeSubmitted, email, handleEmailChange }) => {
 
+    const [emailErr, setEmailErr] = useState(false);
+    const validEmail = new RegExp('^[a-zA-Z0-9._:$!%-]+@[a-zA-Z0-9.-]+.[a-zA-Z]$');
+
     const handleSubmit = (e) => {
         e.preventDefault()
-        axios.post("http://localhost:3002/forgotten", {
-            user: {
-                email: email,
-                code: code
-            }
-        }, {
-            withCredentials: true
-        }).then(response => {
-            console.log(response)
-            handleCodeSubmitted()
-        }).catch(error => {
-            console.log("login error", error)
-        })
+        if(validEmail.test(email)){
+            axios.post("http://localhost:3002/forgotten", {
+                user: {
+                    email: email,
+                    code: code
+                }
+            }, {
+                withCredentials: true
+            }).then(response => {
+                console.log(response)
+                handleCodeSubmitted()
+            }).catch(error => {
+                console.log("login error", error)
+            })
+        } else {
+            setEmailErr(true)
+        }
     }
 
     return (
         <Form onSubmit={handleSubmit}>
             <Form.Group as={Col} controlId="formGridEmail">
                 <Form.Label>Email</Form.Label>
-                <Form.Control type="email" placeholder="Email" value={email} onChange={handleEmailChange} required />
+                <Form.Control type="email" placeholder="Email" className={ emailErr ? "invalid" : ""} value={email} onChange={handleEmailChange} />
+                { emailErr ? <p className="invalid-text">must be a valid email</p> : ""}
             </Form.Group>
             
             <div className="form-button-container form-bottom">
