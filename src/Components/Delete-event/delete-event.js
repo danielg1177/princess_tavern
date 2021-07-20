@@ -7,7 +7,7 @@ const DeleteEvent = () => {
     const [response, setResponse] = useState([])
 
     useEffect(() => {
-        axios.get("https://princestavernapi.herokuapp.com//events")
+        axios.get("https://princestavernapi.herokuapp.com/events")
             .then(res => {
                 let arr = res.data.events
                 setResponse(arr)
@@ -15,7 +15,7 @@ const DeleteEvent = () => {
         }, [])
 
     const handleDelete = (id) => {
-        axios.delete(`https://princestavernapi.herokuapp.com//events/${id}`,
+        axios.delete(`https://princestavernapi.herokuapp.com/events/${id}`,
         { withCredentials: true })
         .then(response => {
             console.log("event delete response", response)

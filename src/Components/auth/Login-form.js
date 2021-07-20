@@ -17,7 +17,7 @@ const LoginForm = ({ handleSuccesfulAuth, handleToggleClick }) => {
     const handleSubmit = (e) => {
         e.preventDefault()
         if(validEmail.test(email) && validPassword.test(password)){
-            axios.post("https://princestavernapi.herokuapp.com//sessions", {
+            axios.post("https://princestavernapi.herokuapp.com/sessions", {
                 user: {
                     password: password,
                     email: email,

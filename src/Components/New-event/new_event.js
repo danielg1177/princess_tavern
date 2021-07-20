@@ -58,7 +58,7 @@ const NewEvent = () => {
     const handleSubmit = (e) => {
         e.preventDefault()
         if(checkValidations()){
-            axios.post("https://princestavernapi.herokuapp.com//events", {
+            axios.post("https://princestavernapi.herokuapp.com/events", {
                 event: {
                     title: title,
                     description: description,

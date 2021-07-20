@@ -10,7 +10,7 @@ const ViewReservations = () => {
            "July", "Aug", "Sep", "Oct", "Nov", "Dec" ]
 
     useEffect(() => {
-        axios.get("https://princestavernapi.herokuapp.com//reservations")
+        axios.get("https://princestavernapi.herokuapp.com/reservations")
             .then(res => {
                 let firstArr = res.data.reservations
                 let arr = []

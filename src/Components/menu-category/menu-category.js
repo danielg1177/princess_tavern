@@ -7,7 +7,7 @@ const MenuCategory = ({ category }) => {
     const [response, setResponse] = useState([])
 
     useEffect(() => {
-            axios.get("https://princestavernapi.herokuapp.com//menu_items")
+            axios.get("https://princestavernapi.herokuapp.com/menu_items")
                 .then(res => {
                     let arr = res.data.menu_items
                     setResponse(arr)

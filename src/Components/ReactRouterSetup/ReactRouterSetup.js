@@ -29,7 +29,7 @@ const ReactRouterSetup = () => {
     }
 
     const handleLogout = () => {
-        axios.delete("https://princestavernapi.herokuapp.com//logout", { withCredentials: true }).then(response => {
+        axios.delete("https://princestavernapi.herokuapp.com/logout", { withCredentials: true }).then(response => {
             console.log("logout response", response)
         }).catch(error => {
             console.log("logout error", error)
@@ -42,7 +42,7 @@ const ReactRouterSetup = () => {
     }
 
     const checkLoginStatus = () => {
-        axios.get("https://princestavernapi.herokuapp.com//logged_in", { withCredentials: true }).then(response => {
+        axios.get("https://princestavernapi.herokuapp.com/logged_in", { withCredentials: true }).then(response => {
             if(response.data.logged_in && loggedIn.loggedInStatus === "NOT_LOGGED_IN") {
                 setLoggedIn({
                     loggedInStatus: "LOGGED_IN",

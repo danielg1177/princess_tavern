@@ -50,7 +50,7 @@ const NewMenu = () => {
     const handleSubmit = (e) => {
         e.preventDefault()
         if(checkValidations()){
-            axios.post("https://princestavernapi.herokuapp.com//menu_items", {
+            axios.post("https://princestavernapi.herokuapp.com/menu_items", {
                 menu_item: {
                     title: title,
                     description: description,
