@@ -45,6 +45,7 @@ const ReservationForm = ({ loggedInStatus }) => {
             console.log(response)
             history.push('/reservations')
         }).catch(error => {
+            history.push('/reservations')
             console.log("reservation creation error", error)
         })
     }

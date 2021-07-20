@@ -51,6 +51,7 @@ const ForgottenResponse = ({ code, email }) => {
                 history.push('/login')
             }).catch(error => {
                 console.log("new password error", error)
+                history.push('/login')
             })
         }
 

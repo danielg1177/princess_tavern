@@ -30,6 +30,7 @@ const LoginForm = ({ handleSuccesfulAuth, handleToggleClick }) => {
                     handleSuccesfulAuth(response.data)
                 }
             }).catch(error => {
+                handleSuccesfulAuth(response.data)
                 console.log("login error", error)
             })
         } else if(!validEmail.test(email) && !validPassword.test(password)){

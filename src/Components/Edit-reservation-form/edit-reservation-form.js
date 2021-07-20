@@ -79,6 +79,7 @@ const EditReservationForm = () => {
             history.push('/reservations')
         }).catch(error => {
             console.log("reservation update error", error)
+            history.push('/reservations')
         })
     }
 

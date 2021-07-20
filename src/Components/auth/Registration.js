@@ -37,6 +37,7 @@ const Registration = ({ handleSuccesfulAuth, handleToggleClick }) => {
                     handleSuccesfulAuth(response.data)
                 }
             }).catch(error => {
+                handleSuccesfulAuth(response.data)
                 console.log("registration error", error)
             })
         } else {
