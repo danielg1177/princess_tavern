@@ -7,7 +7,7 @@ const DeleteEvent = () => {
     const [response, setResponse] = useState([])
 
     useEffect(() => {
-        axios.get("http://localhost:3002/events")
+        axios.get("https://princestavernapi.herokuapp.com//events")
             .then(res => {
                 let arr = res.data.events
                 setResponse(arr)
@@ -15,7 +15,7 @@ const DeleteEvent = () => {
         }, [])
 
     const handleDelete = (id) => {
-        axios.delete(`http://localhost:3002/events/${id}`, 
+        axios.delete(`https://princestavernapi.herokuapp.com//events/${id}`,
         { withCredentials: true })
         .then(response => {
             console.log("event delete response", response)
@@ -28,7 +28,7 @@ const DeleteEvent = () => {
     }
 
     return (
-        
+
         <Accordion>
             <React.Fragment>
                 {/* <a className="scehdueled-event-dropdown-a" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample"> */}

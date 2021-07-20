@@ -17,24 +17,24 @@ import EditReservation from '../../Pages/Edit-reservation'
 
 const ReactRouterSetup = () => {
     const [loggedIn, setLoggedIn] = useState({
-        loggedInStatus: "NOT_LOGGED_IN", 
+        loggedInStatus: "NOT_LOGGED_IN",
         user: {}
     })
 
     const handleLogin = (data) => {
-        setLoggedIn({ 
+        setLoggedIn({
             loggedInStatus: "LOGGED_IN",
             user: data.user
         })
     }
 
     const handleLogout = () => {
-        axios.delete("http://localhost:3002/logout", { withCredentials: true }).then(response => {
+        axios.delete("https://princestavernapi.herokuapp.com//logout", { withCredentials: true }).then(response => {
             console.log("logout response", response)
         }).catch(error => {
             console.log("logout error", error)
         })
-        setLoggedIn({ 
+        setLoggedIn({
             loggedInStatus: "NOT_LOGGED_IN",
             user: {}
         })
@@ -42,7 +42,7 @@ const ReactRouterSetup = () => {
     }
 
     const checkLoginStatus = () => {
-        axios.get("http://localhost:3002/logged_in", { withCredentials: true }).then(response => {
+        axios.get("https://princestavernapi.herokuapp.com//logged_in", { withCredentials: true }).then(response => {
             if(response.data.logged_in && loggedIn.loggedInStatus === "NOT_LOGGED_IN") {
                 setLoggedIn({
                     loggedInStatus: "LOGGED_IN",
@@ -73,7 +73,7 @@ const ReactRouterSetup = () => {
                 </Route>
                 <Route path="/about-us" render={props => (
                     <AboutUs {...props} loggedInStatus={loggedIn} handleLogout={handleLogout} />
-                )}>   
+                )}>
                 </Route>
                 <Route path="/menu" render={props => (
                     <Menu {...props} loggedInStatus={loggedIn} handleLogout={handleLogout} />
@@ -110,7 +110,7 @@ const ReactRouterSetup = () => {
                     <ForgottenPassword {...props} loggedInStatus={loggedIn} handleLogout={handleLogout} />
                 )}>
                 </Route>
-            </Switch>      
+            </Switch>
         </Router>
     )
 }

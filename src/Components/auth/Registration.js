@@ -18,13 +18,13 @@ const Registration = ({ handleSuccesfulAuth, handleToggleClick }) => {
 
     const validPasswordConfirmation = () => {
         if(password === passwordConfirmation) return true
-        return false  
+        return false
     }
 
     const handleSubmit = (e) => {
         e.preventDefault()
         if(validEmail.test(email) && validPassword.test(password) && validPasswordConfirmation(passwordConfirmation)) {
-            axios.post("http://localhost:3002/registrations", {
+            axios.post("https://princestavernapi.herokuapp.com//registrations", {
                 user: {
                     password: password,
                     email: email,

@@ -17,7 +17,7 @@ const LoginForm = ({ handleSuccesfulAuth, handleToggleClick }) => {
     const handleSubmit = (e) => {
         e.preventDefault()
         if(validEmail.test(email) && validPassword.test(password)){
-            axios.post("http://localhost:3002/sessions", {
+            axios.post("https://princestavernapi.herokuapp.com//sessions", {
                 user: {
                     password: password,
                     email: email,
@@ -69,7 +69,7 @@ const LoginForm = ({ handleSuccesfulAuth, handleToggleClick }) => {
                     <Form.Control type="password" id="password" name="password" className={ pwdError ? "invalid" : ""} placeholder="Password" value={password} onChange={handlePasswordChange} />
                     { pwdError ? <p className="invalid-text">password must be 6 characters</p> : ""}
                 </Form.Group>
-                
+
                 <div className="form-button-container form-bottom">
                     <div>
                         <p onClick={handleToggleClick} className="purple">Not Registered?</p>
@@ -80,7 +80,7 @@ const LoginForm = ({ handleSuccesfulAuth, handleToggleClick }) => {
                     </Button>
                 </div>
             </Form>
-            
+
         </div>
     )
 }

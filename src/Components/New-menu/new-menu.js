@@ -50,7 +50,7 @@ const NewMenu = () => {
     const handleSubmit = (e) => {
         e.preventDefault()
         if(checkValidations()){
-            axios.post("http://localhost:3002/menu_items", {
+            axios.post("https://princestavernapi.herokuapp.com//menu_items", {
                 menu_item: {
                     title: title,
                     description: description,
@@ -73,7 +73,7 @@ const NewMenu = () => {
     }
 
     return (
-        
+
             <Accordion>
             <div>
                 {/* <a className="scehdueled-event-dropdown-a" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample"> */}
@@ -122,7 +122,7 @@ const NewMenu = () => {
                             </Button>
                         </div>
                     </Form>
-                    
+
                 </Accordion.Collapse>
                 {/* </div> */}
             </div>

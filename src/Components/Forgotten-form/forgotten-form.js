@@ -13,7 +13,7 @@ const ForgottenForm = ({ code, handleCodeSubmitted, email, handleEmailChange }) 
     const handleSubmit = (e) => {
         e.preventDefault()
         if(validEmail.test(email)){
-            axios.post("http://localhost:3002/forgotten", {
+            axios.post("https://princestavernapi.herokuapp.com//forgotten", {
                 user: {
                     email: email,
                     code: code
@@ -38,7 +38,7 @@ const ForgottenForm = ({ code, handleCodeSubmitted, email, handleEmailChange }) 
                 <Form.Control type="email" placeholder="Email" className={ emailErr ? "invalid" : ""} value={email} onChange={handleEmailChange} />
                 { emailErr ? <p className="invalid-text">must be a valid email</p> : ""}
             </Form.Group>
-            
+
             <div className="form-button-container form-bottom">
                 <div>
                     <Link to='/login'>Back to login</Link>

@@ -58,7 +58,7 @@ const NewEvent = () => {
     const handleSubmit = (e) => {
         e.preventDefault()
         if(checkValidations()){
-            axios.post("http://localhost:3002/events", {
+            axios.post("https://princestavernapi.herokuapp.com//events", {
                 event: {
                     title: title,
                     description: description,
@@ -82,7 +82,7 @@ const NewEvent = () => {
     }
 
     return (
-        
+
         <Accordion>
             <div>
                 {/* <a className="scehdueled-event-dropdown-a" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample"> */}
@@ -140,7 +140,7 @@ const NewEvent = () => {
                             </Button>
                         </div>
                     </Form>
-                    
+
                 </Accordion.Collapse>
                 {/* </div> */}
             </div>

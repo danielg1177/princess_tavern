@@ -7,7 +7,7 @@ const DeleteMenu = () => {
     const [response, setResponse] = useState([])
 
     useEffect(() => {
-        axios.get("http://localhost:3002/menu_items")
+        axios.get("https://princestavernapi.herokuapp.com//menu_items")
             .then(res => {
                 let arr = res.data.menu_items
                 setResponse(arr)
@@ -15,7 +15,7 @@ const DeleteMenu = () => {
         }, [])
 
     const handleDelete = (id) => {
-        axios.delete(`http://localhost:3002/menu_items/${id}`, 
+        axios.delete(`https://princestavernapi.herokuapp.com//menu_items/${id}`,
         { withCredentials: true })
         .then(response => {
             console.log("menu_item delete response", response)
@@ -28,7 +28,7 @@ const DeleteMenu = () => {
     }
 
     return (
-        
+
         <Accordion>
             <React.Fragment>
                 {/* <a className="scehdueled-event-dropdown-a" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample"> */}

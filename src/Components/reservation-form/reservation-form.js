@@ -31,7 +31,7 @@ const ReservationForm = ({ loggedInStatus }) => {
 
     const handleSubmit = (e) => {
         e.preventDefault()
-        axios.post("http://localhost:3002/reservations", {
+        axios.post("https://princestavernapi.herokuapp.com//reservations", {
             reservation: {
                 user: loggedInStatus.user.id,
                 phone_number: phoneNumber,

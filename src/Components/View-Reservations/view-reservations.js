@@ -6,20 +6,20 @@ const ViewReservations = () => {
 
     const [reservations, setReservations] = useState([])
 
-    const months = [ "Jan", "Feb", "Mar", "Apr", "May", "June", 
+    const months = [ "Jan", "Feb", "Mar", "Apr", "May", "June",
            "July", "Aug", "Sep", "Oct", "Nov", "Dec" ]
 
-    useEffect(() => {   
-        axios.get("http://localhost:3002/reservations")
+    useEffect(() => {
+        axios.get("https://princestavernapi.herokuapp.com//reservations")
             .then(res => {
                 let firstArr = res.data.reservations
                 let arr = []
                 firstArr.forEach(obj => {
                     arr.push({
-                        date: new Date(parseInt(`${obj.date[0]}${obj.date[1]}${obj.date[2]}${obj.date[3]}`), (parseInt(`${obj.date[5]}${obj.date[6]}`)), parseInt(`${obj.date[8]}${obj.date[9]}`), parseInt(`${obj.time[0]}${obj.time[1]}`), parseInt(`${obj.time[3]}${obj.time[4]}`)), 
-                        time: obj.time, 
-                        phone_number: obj.phone_number, 
-                        count: obj.count, 
+                        date: new Date(parseInt(`${obj.date[0]}${obj.date[1]}${obj.date[2]}${obj.date[3]}`), (parseInt(`${obj.date[5]}${obj.date[6]}`)), parseInt(`${obj.date[8]}${obj.date[9]}`), parseInt(`${obj.time[0]}${obj.time[1]}`), parseInt(`${obj.time[3]}${obj.time[4]}`)),
+                        time: obj.time,
+                        phone_number: obj.phone_number,
+                        count: obj.count,
                         id: obj.id })
                     })
                     let sortedArr = arr.sort((obj1, obj2) => {

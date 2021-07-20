@@ -26,10 +26,10 @@ const ForgottenResponse = ({ code, email }) => {
     const handlePasswordConfirmationChange = (e) => {
         setPasswordConfirmation(e.target.value)
     }
-    
+
     const handleCodeSubmit = (e) => {
         e.preventDefault()
-        if(userInput === code){ 
+        if(userInput === code){
             setUserConfirmed(true)
         } else {
             setCodeErr(true)
@@ -38,7 +38,7 @@ const ForgottenResponse = ({ code, email }) => {
 
     const handlePasswordSubmit = (e) => {
         e.preventDefault()
-        axios.patch(`http://localhost:3002/update`, {
+        axios.patch(`https://princestavernapi.herokuapp.com//update`, {
             user: {
                 email: email,
                 password: password,
@@ -54,7 +54,7 @@ const ForgottenResponse = ({ code, email }) => {
             })
         }
 
-    
+
     if(!userConfirmed){
         return (
             <Form onSubmit={handleCodeSubmit}>
@@ -63,7 +63,7 @@ const ForgottenResponse = ({ code, email }) => {
                     <Form.Control type="text" placeholder="Code" className={ codeErr ? "invalid" : ""} value={userInput} onChange={handleUserInputChange} />
                     { codeErr ? <p className="invalid-text">Code does not match</p> : ""}
                 </Form.Group>
-                
+
                 <div className="form-button-container form-bottom">
                     <div>
                         <Link to='/login'>Back to login</Link>
@@ -73,7 +73,7 @@ const ForgottenResponse = ({ code, email }) => {
                     </Button>
                 </div>
             </Form>
-                
+
         )
     } else {
         return (
@@ -87,7 +87,7 @@ const ForgottenResponse = ({ code, email }) => {
                     <Form.Label>New Password Confirmation</Form.Label>
                     <Form.Control type="password" placeholder="Password Confirmation" name="password_confirmation" value={passwordConfirmation} onChange={handlePasswordConfirmationChange} required />
                 </Form.Group>
-                
+
                 <div className="form-button-container form-bottom">
                     <div>
                         <Link to='/login'>Back to login</Link>
