@@ -33,7 +33,7 @@
 
 .person-container2 {
   width: 100%;
-  height: 340px;
+  height: 400px;
   display: flex;
   justify-content: space-between;
   margin-top: 40px;
@@ -44,7 +44,7 @@
 
 @media screen and (max-width: 768px) {
     .person-container2 {
-        height: 750px;
+        height: 890px;
         align-items: center;
         flex-direction: column;
     }
@@ -70,6 +70,10 @@
     .person-info {
         width: 380px;
         height: 400px;
+    }
+
+    .person-img2 {
+        height: 490px;
     }
 }
 
