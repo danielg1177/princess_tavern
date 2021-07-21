@@ -1,11 +1,13 @@
-import React from 'react'
+import React from 'react';
+import Gordon1 from '../../images/Gordon1.jpeg';
+import Gordon2 from '../../images/Gordon2.jpeg';
 
 const AboutUsFirst = () => {
     return (
         <div className="about-us-first-container">
             <div className="person-container">
                 <div className="person-img">
-                    <img src="https://images.unsplash.com/photo-1567336273898-ebbf9eb3c3bf?ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mzh8fHBlcnNvbnxlbnwwfHwwfHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=60" alt="" />
+                    <img src={Gordon1} alt="" />
                 </div>
                 <div className="person-info">
                     <h4>Daniel Gordon</h4>
@@ -14,11 +16,12 @@ const AboutUsFirst = () => {
             </div>
             <div className="person-container2">
                 <div className="person-img">
-                    <img src="https://images.unsplash.com/photo-1567336273898-ebbf9eb3c3bf?ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mzh8fHBlcnNvbnxlbnwwfHwwfHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=60" alt="" />
+                    <img src={Gordon2} alt="" />
                 </div>
                 <div className="person-info">
                     <h4>Lessons from this project</h4>
                     <p>Dont build websites for friends...</p>
+                    <div></div>
                 </div>
             </div>
         </div>

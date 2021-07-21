@@ -11,7 +11,6 @@ const MenuCategory = ({ category }) => {
                 .then(res => {
                     let arr = res.data.menu_items
                     setResponse(arr)
-                    console.log(response)
                 })
             // eslint-disable-next-line react-hooks/exhaustive-deps
             }, [])
@@ -22,9 +21,9 @@ const MenuCategory = ({ category }) => {
             <div className="menu-items-grid">
                 {response.map(item => {
                     if (item.category === category) {
-                        return <MenuItem url={item.url} title={item.title} ingrediants={item.ingrediants} description={item.description} id={item.id} />
+                        return <MenuItem url={item.url} title={item.title} ingrediants={item.ingrediants} description={item.description} id={item.id} key={item.id} />
                     }
-                    return <div></div>
+                    return null;
                 })}
             </div>
         </div>

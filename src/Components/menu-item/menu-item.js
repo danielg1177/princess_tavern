@@ -3,7 +3,6 @@ import Modal from '../Modal/modal'
 
 const MenuItem = ({title, ingrediants, description, url, id}) => {
     const [show, setShow] = useState(false);
-    console.log(ingrediants)
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
     return (

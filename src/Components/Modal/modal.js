@@ -1,12 +1,11 @@
 import React from 'react'
 
 const Modal = ({ handleClose, title, description, ingrediants, url }) => {
-
     return (
         <div className='modal'>
             <div className="inner-modal-container" onClick={handleClose}>
                 <div className="inner-modal-card">
-                    <div  className="modal-img" style={{backgroundImage: `url(${url})`}}>
+                    <div className="modal-img" style={{backgroundImage: `url(${url})`}}>
                     </div>
                     <h1>{title}</h1>
                     <div className="modal-info">
@@ -26,7 +25,6 @@ const Modal = ({ handleClose, title, description, ingrediants, url }) => {
             </div>
         </div>
     )
-   
 }
 
 export default Modal
