@@ -47,6 +47,7 @@ const EventsGrid = () => {
                             dotm={event.date.getDate()}
                             url={event.url}
                             id={event.id}
+                            key={event.id}
                         />
                     )
                 })}

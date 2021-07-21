@@ -16,19 +16,23 @@ const EditReservationForm = () => {
     const [count, setCount] = useState(2);
 
     useEffect(() => {
-        axios.get("https://princestavernapi.herokuapp.com/reservations")
-        .then(res => {
-            let fetchedRes = res.data.reservations.find(reservation => {
-                return reservation.id.toString() === id.id
+        const fetchReservations = () => {
+            axios.get("https://princestavernapi.herokuapp.com/reservations")
+            .then(res => {
+                let fetchedRes = res.data.reservations.find(reservation => {
+                    return reservation.id.toString() === id.id
+                })
+                setDate(fetchedRes.date)
+                setTime(fetchedRes.time)
+                setPhoneNumber(fetchedRes.phone_number)
+                setCount(fetchedRes.count)
+                setReservation(fetchedRes)
+            }).catch(err => {
+                console.log("reservations response", err)
             })
-            setDate(fetchedRes.date)
-            setTime(fetchedRes.time)
-            setPhoneNumber(fetchedRes.phone_number)
-            setCount(fetchedRes.count)
-            setReservation(fetchedRes)
-        }).catch(err => {
-            console.log("reservations response", err)
-        })
+        }
+        fetchReservations()
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
 
     const handleDelete = (e) => {
@@ -40,10 +44,6 @@ const EditReservationForm = () => {
         }).catch(error => {
             console.log("menu_item delete error", error)
         })
-    }
-
-    const checkValidations = () => {
-
     }
 
     const handleDateChange = (e) => {

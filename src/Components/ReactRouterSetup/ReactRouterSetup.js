@@ -11,7 +11,6 @@ import Admin from '../../Pages/Admin'
 import Login from '../../Pages/Login'
 import history from '../../Helpers/history';
 import axios from 'axios';
-import EditReservationForm from '../Edit-reservation-form/edit-reservation-form'
 import ForgottenPassword from '../../Pages/Forgotten-password'
 import EditReservation from '../../Pages/Edit-reservation'
 
@@ -61,6 +60,7 @@ const ReactRouterSetup = () => {
 
     useEffect(() => {
         checkLoginStatus()
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
 
 

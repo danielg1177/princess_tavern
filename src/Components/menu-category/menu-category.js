@@ -13,6 +13,7 @@ const MenuCategory = ({ category }) => {
                     setResponse(arr)
                     console.log(response)
                 })
+            // eslint-disable-next-line react-hooks/exhaustive-deps
             }, [])
 
     return (
@@ -20,9 +21,10 @@ const MenuCategory = ({ category }) => {
             <h2>{category}</h2>
             <div className="menu-items-grid">
                 {response.map(item => {
-                    if(item.category === category) {
+                    if (item.category === category) {
                         return <MenuItem url={item.url} title={item.title} ingrediants={item.ingrediants} description={item.description} id={item.id} />
                     }
+                    return <div></div>
                 })}
             </div>
         </div>

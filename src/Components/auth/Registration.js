@@ -11,7 +11,6 @@ const Registration = ({ handleSuccesfulAuth, handleToggleClick }) => {
     const [emailErr, setEmailErr] = useState(false);
     const [pwdError, setPwdError] = useState(false);
     const [pwdConfError, setPwdConfError] = useState(false);
-    const [registrationErrors, setRegistrationErrors] = useState("")
 
     const validEmail = new RegExp('^[a-zA-Z0-9._:$!%-]+@[a-zA-Z0-9.-]+.[a-zA-Z]$');
     const validPassword = new RegExp(".{6,}");

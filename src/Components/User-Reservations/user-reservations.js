@@ -33,6 +33,7 @@ const UserReservations = ({ loggedInStatus }) => {
                     console.log("reservations response", err)
             })
         }
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
 
     if(userReservationsArr.length > 0){
