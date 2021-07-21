@@ -13,11 +13,11 @@ const Admin = ({loggedInStatus, handleLogout}) => {
             <Navbar active=""  loggedInStatus={loggedInStatus} handleLogout={handleLogout} />
             <div className="form-container">
                 <h2>Change Database</h2>
-                <ViewReservations />
                 <NewEvent />
                 <DeleteEvent />
                 <NewMenu />
                 <DeleteMenu />
+                <ViewReservations />
             </div>
         </div>
     )

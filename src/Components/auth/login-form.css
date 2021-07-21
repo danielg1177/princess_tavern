@@ -11,7 +11,7 @@
 }
 
 .form-bottom p:hover {
-    color: rgb(48, 48, 248);  
+    color: rgb(48, 48, 248);
 }
 
 .form-bottom a {
@@ -37,4 +37,10 @@
 
 .purple {
     color: #392F5A;
+}
+
+.login-error {
+    color: #DC3544;
+    text-align: center;
+    margin-top: 20px;
 }

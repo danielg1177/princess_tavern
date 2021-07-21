@@ -11,7 +11,10 @@ const AboutUsFirst = () => {
                 </div>
                 <div className="person-info">
                     <h4>Daniel Gordon</h4>
-                    <p>A roasted smokey flavor that leaves you as dumbfounded as if you've just witnessed an epic show of illusion. Except there's also a magical chocolate aftertaste too. Can you taste the roasted flavors? Feel the sweetness and bitterness gently embracing your taste buds? Great, because while you weren't paying attention we finished off your beer. That's just how it is when you're distracted by a unique flavors. Black Jack, a mysteriously magical stout.</p>
+                    <p className="person-titles"><span>Military Leadership</span></p>
+                    <p>Spent three years serving in an anti terror special operations unit in the Israeli army.</p>
+                    <p className="person-titles"><span>Self Taught</span></p>
+                    <p>Spent the next year and a half studying software engineering honing my skills in javascript, HTML, CSS, SQL and React</p>
                 </div>
             </div>
             <div className="person-container2">
@@ -19,9 +22,12 @@ const AboutUsFirst = () => {
                     <img src={Gordon2} alt="" />
                 </div>
                 <div className="person-info">
-                    <h4>Lessons from this project</h4>
-                    <p>Dont build websites for friends...</p>
-                    <div></div>
+                    <p className="person-titles"><span>Le Wagon Web Development Course</span></p>
+                    <p>A 9 intensive week bootcamp focusing on Javascript, Ruby, Rails, Bootstrap, SQL, PostgreSQL and git workflow</p>
+                    <p className="person-titles"><span>This</span></p>
+                    <p>Look around, try changing events and menu items at the Princes Tavern <a href="http://princes-tavern.herokuapp.com/admin">admin page</a></p>
+                    <p className="person-titles"><span>Hashuk (Current Employment)</span></p>
+                    <p>A startup inventory managment system aimed to help small buisness owners with overall productivy. Built in PHP using Laravel, Livewire and Tailwind CSS</p>
                 </div>
             </div>
         </div>

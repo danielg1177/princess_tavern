@@ -10,13 +10,15 @@ const LoginForm = ({ handleSuccesfulAuth, handleToggleClick }) => {
     const [password, setPassword] = useState("")
     const [emailErr, setEmailErr] = useState(false);
     const [pwdError, setPwdError] = useState(false);
-    // const [loginErrors, setLoginErrors] = useState("")
+    const [loginErrors, setLoginErrors] = useState(false);
     const validEmail = new RegExp('^[a-zA-Z0-9._:$!%-]+@[a-zA-Z0-9.-]+.[a-zA-Z]$');
     const validPassword = new RegExp(".{6,}");
 
     const handleSubmit = (e) => {
         e.preventDefault()
         if(validEmail.test(email) && validPassword.test(password)){
+            setEmailErr(false)
+            setPwdError(false)
             axios.post("https://princestavernapi.herokuapp.com/sessions", {
                 user: {
                     password: password,
@@ -25,9 +27,10 @@ const LoginForm = ({ handleSuccesfulAuth, handleToggleClick }) => {
             }, {
                 withCredentials: true
             }).then(response => {
-                console.log(response)
                 if (response.data.status === "created") {
                     handleSuccesfulAuth(response.data)
+                } else if (response.data.status === 401) {
+                    setLoginErrors(true)
                 }
             }).catch(error => {
                 console.log("login error", error)
@@ -56,7 +59,7 @@ const LoginForm = ({ handleSuccesfulAuth, handleToggleClick }) => {
     return (
         <div className="form-container">
             <h2>Login</h2>
-
+            {loginErrors && <p className="login-error">Either your email or password was incorrect</p>}
              <Form onSubmit={handleSubmit}>
                 <Form.Group as={Col}>
                     <Form.Label>Email</Form.Label>
@@ -80,7 +83,6 @@ const LoginForm = ({ handleSuccesfulAuth, handleToggleClick }) => {
                     </Button>
                 </div>
             </Form>
-
         </div>
     )
 }

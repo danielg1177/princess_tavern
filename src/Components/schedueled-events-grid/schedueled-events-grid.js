@@ -44,6 +44,7 @@ const SchedueledEventsGrid = () => {
                             month={months[(event.date.getMonth()) - 1]}
                             dotm={event.date.getDate()}
                             url={event.url}
+                            key={event.id}
                         />
                     )
                 })}

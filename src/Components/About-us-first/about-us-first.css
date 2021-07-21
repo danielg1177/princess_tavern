@@ -50,15 +50,13 @@
     }
 }
 
-.person-container2 .person-info {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-between;
-}
-
 .person-img img {
     border-radius: 2px;
+}
+
+.person-titles {
+    font-weight: bold;
+    margin-bottom: 0;
 }
 
 .person-img,
@@ -97,7 +95,6 @@
 .person-info {
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
 }
 
 @media screen and (max-width: 768px) {
