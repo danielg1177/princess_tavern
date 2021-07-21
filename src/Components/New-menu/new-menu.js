@@ -86,25 +86,25 @@ const NewMenu = () => {
                 {/* <div class="collapse" id="collapseExample"> */}
                 <Accordion.Collapse eventKey="1" className="acord">
                     <Form onSubmit={handleSubmit}>
-                        <Form.Group as={Col} controlId="formGridEmail">
+                        <Form.Group as={Col}>
                             <Form.Label>Title</Form.Label>
                             <Form.Control type="text" name="title" placeholder="Name of menu item" className={ titleErr ? "invalid" : ""} onChange={handleTitleChange} value={title} />
                             { titleErr ? <p className="invalid-text">title can not be empty</p> : ""}
                         </Form.Group>
 
-                        <Form.Group as={Col} controlId="formGridPassword">
+                        <Form.Group as={Col}>
                             <Form.Label>Description</Form.Label>
                             <Form.Control type="text" name="description" placeholder="Description" className={ descriptionErr ? "invalid" : ""} onChange={handleDescriptionChange} value={description} />
                             { descriptionErr ? <p className="invalid-text">description can not be empty</p> : ""}
                         </Form.Group>
 
-                        <Form.Group as={Col} controlId="formGridEmail">
+                        <Form.Group as={Col}>
                             <Form.Label>Ingrediants (seprate each ingrediant with a comma and a space)</Form.Label>
                             <Form.Control type="text" placeholder="pickels, lettuce, chicken" className={ ingrediantsErr ? "invalid" : ""} name="date" onChange={handleIngrediantsChange} value={ingrediants} />
                             { ingrediantsErr ? <p className="invalid-text">ingrediants can not be empty</p> : ""}
                         </Form.Group>
 
-                        <Form.Group as={Col} controlId="formGridState">
+                        <Form.Group as={Col}>
                             <Form.Label>Category</Form.Label>
                             <Form.Control as="select" defaultValue="public" name="public" onChange={handleCategoryChange} value={category} required>
                                 <option>Sides</option>
@@ -112,7 +112,7 @@ const NewMenu = () => {
                             </Form.Control>
                         </Form.Group>
 
-                        <Form.Group as={Col} controlId="formGridPassword">
+                        <Form.Group as={Col}>
                             <Form.Label>Image Url</Form.Label>
                             <Form.Control type="text" name="url" placeholder="Image URL" onChange={handleURLChange} value={url} />
                         </Form.Group>

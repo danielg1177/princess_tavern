@@ -58,13 +58,13 @@ const LoginForm = ({ handleSuccesfulAuth, handleToggleClick }) => {
             <h2>Login</h2>
 
              <Form onSubmit={handleSubmit}>
-                <Form.Group as={Col} controlId="formGridEmail">
+                <Form.Group as={Col}>
                     <Form.Label>Email</Form.Label>
                     <Form.Control type="text" placeholder="Email" value={email} className={ emailErr ? "invalid" : ""} onChange={handleEmailChange} />
                     { emailErr ? <p className="invalid-text">must be a valid email</p> : ""}
                 </Form.Group>
 
-                <Form.Group as={Col} controlId="formGridPassword">
+                <Form.Group as={Col}>
                     <Form.Label>Password</Form.Label>
                     <Form.Control type="password" id="password" name="password" className={ pwdError ? "invalid" : ""} placeholder="Password" value={password} onChange={handlePasswordChange} />
                     { pwdError ? <p className="invalid-text">password must be 6 characters</p> : ""}

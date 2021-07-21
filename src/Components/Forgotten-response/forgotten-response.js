@@ -59,7 +59,7 @@ const ForgottenResponse = ({ code, email }) => {
     if(!userConfirmed){
         return (
             <Form onSubmit={handleCodeSubmit}>
-                <Form.Group as={Col} controlId="formGridEmail">
+                <Form.Group as={Col}>
                     <Form.Label>Code</Form.Label>
                     <Form.Control type="text" placeholder="Code" className={ codeErr ? "invalid" : ""} value={userInput} onChange={handleUserInputChange} />
                     { codeErr ? <p className="invalid-text">Code does not match</p> : ""}
@@ -79,12 +79,12 @@ const ForgottenResponse = ({ code, email }) => {
     } else {
         return (
             <Form onSubmit={handlePasswordSubmit}>
-                <Form.Group as={Col} controlId="formGridPassword">
+                <Form.Group as={Col}>
                     <Form.Label>New Password</Form.Label>
                     <Form.Control type="password" id="password" name="password" placeholder="Password" value={password} onChange={handlePasswordChange} required />
                 </Form.Group>
 
-                <Form.Group as={Col} controlId="formGridPassword">
+                <Form.Group as={Col}>
                     <Form.Label>New Password Confirmation</Form.Label>
                     <Form.Control type="password" placeholder="Password Confirmation" name="password_confirmation" value={passwordConfirmation} onChange={handlePasswordConfirmationChange} required />
                 </Form.Group>

@@ -33,7 +33,7 @@ const ForgottenForm = ({ code, handleCodeSubmitted, email, handleEmailChange }) 
 
     return (
         <Form onSubmit={handleSubmit}>
-            <Form.Group as={Col} controlId="formGridEmail">
+            <Form.Group as={Col}>
                 <Form.Label>Email</Form.Label>
                 <Form.Control type="email" placeholder="Email" className={ emailErr ? "invalid" : ""} value={email} onChange={handleEmailChange} />
                 { emailErr ? <p className="invalid-text">must be a valid email</p> : ""}

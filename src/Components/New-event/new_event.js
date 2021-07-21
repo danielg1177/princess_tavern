@@ -95,34 +95,34 @@ const NewEvent = () => {
                 {/* <div class="collapse" id="collapseExample"> */}
                 <Accordion.Collapse eventKey="0" className="acord">
                     <Form onSubmit={handleSubmit}>
-                        <Form.Group as={Col} controlId="formGridEmail">
+                        <Form.Group as={Col} >
                             <Form.Label>Title</Form.Label>
                             <Form.Control type="text" name="title" placeholder="Name of event" className={ titleErr ? "invalid" : ""} onChange={handleTitleChange} value={title} />
                             { titleErr ? <p className="invalid-text">title can not be empty</p> : ""}
                         </Form.Group>
 
-                        <Form.Group as={Col} controlId="formGridPassword">
+                        <Form.Group as={Col}>
                             <Form.Label>Short Description</Form.Label>
                             <Form.Control type="text" name="description" className={ descriptionErr ? "invalid" : ""} placeholder="Description" onChange={handleDescriptionChange} value={description} />
                             { descriptionErr ? <p className="invalid-text">description can not be empty</p> : ""}
                         </Form.Group>
 
-                        <Form.Group as={Col} controlId="formGridEmail">
+                        <Form.Group as={Col}>
                             <Form.Label>Date of event</Form.Label>
                             <Form.Control type="date" placeholder="Enter Reservation Date" name="date" onChange={handleDateChange} value={date} required />
                         </Form.Group>
 
-                        <Form.Group as={Col} controlId="formGridPassword">
+                        <Form.Group as={Col}>
                             <Form.Label>Start Time</Form.Label>
                             <Form.Control type="time" placeholder="Start Time" name="startTime" onChange={handleStartChange} value={startTime} required />
                         </Form.Group>
 
-                        <Form.Group as={Col} controlId="formGridPassword">
+                        <Form.Group as={Col}>
                             <Form.Label>End Time</Form.Label>
                             <Form.Control type="time" placeholder="End Time" name="endTime" onChange={handleEndChange} value={endTime} required />
                         </Form.Group>
 
-                        <Form.Group as={Col} controlId="formGridState">
+                        <Form.Group as={Col}>
                             <Form.Label>Public or Private Event?</Form.Label>
                             <Form.Control as="select" defaultValue="public" name="public" onChange={handlePublicChange} value={pub} required>
                                 <option>public</option>
@@ -130,7 +130,7 @@ const NewEvent = () => {
                             </Form.Control>
                         </Form.Group>
 
-                        <Form.Group as={Col} controlId="formGridPassword">
+                        <Form.Group as={Col}>
                             <Form.Label>Image Url</Form.Label>
                             <Form.Control type="text" name="url" placeholder="Image URL" onChange={handleURLChange} value={url} />
                         </Form.Group>
