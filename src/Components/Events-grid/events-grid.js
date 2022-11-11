@@ -9,7 +9,7 @@ const EventsGrid = () => {
            "July", "Aug", "Sep", "Oct", "Nov", "Dec" ]
 
     useEffect(() => {
-        axios.get("https://princestavernapi.herokuapp.com/events")
+        axios.get("https://princestavernapi.netlify.app/events")
             .then(res => {
                 let firstArr = res.data.events
                 console.log(firstArr)

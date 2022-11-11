@@ -13,7 +13,7 @@ const ForgottenForm = ({ code, handleCodeSubmitted, email, handleEmailChange }) 
     const handleSubmit = (e) => {
         e.preventDefault()
         if(validEmail.test(email)){
-            axios.post("https://princestavernapi.herokuapp.com/forgotten", {
+            axios.post("https://princestavernapi.netlify.app/forgotten", {
                 user: {
                     email: email,
                     code: code

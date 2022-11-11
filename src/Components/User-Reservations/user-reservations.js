@@ -11,7 +11,7 @@ const UserReservations = ({ loggedInStatus }) => {
 
     useEffect(() => {
         if (loggedInStatus.loggedInStatus === "LOGGED_IN"){
-            axios.get("https://princestavernapi.herokuapp.com/reservations")
+            axios.get("https://princestavernapi.netlify.app/reservations")
                 .then(res => {
                     let firstArr = res.data.reservations.filter(reservation => {
                         return reservation.user_id === loggedInStatus.user.id

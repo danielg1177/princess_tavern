@@ -8,7 +8,7 @@ const SchedueledEventsGrid = () => {
     const [response, setResponse] = useState([])
 
     useEffect(() => {
-            axios.get("https://princestavernapi.herokuapp.com/events")
+            axios.get("https://princestavernapi.netlify.app/events")
                 .then(res => {
                     let firstArr = res.data.events
                     let arr = []

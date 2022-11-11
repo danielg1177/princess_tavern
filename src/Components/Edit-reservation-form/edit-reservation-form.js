@@ -17,7 +17,7 @@ const EditReservationForm = () => {
 
     useEffect(() => {
         const fetchReservations = () => {
-            axios.get("https://princestavernapi.herokuapp.com/reservations")
+            axios.get("https://princestavernapi.netlify.app/reservations")
             .then(res => {
                 let fetchedRes = res.data.reservations.find(reservation => {
                     return reservation.id.toString() === id.id
@@ -36,7 +36,7 @@ const EditReservationForm = () => {
     }, [])
 
     const handleDelete = (e) => {
-        axios.delete(`https://princestavernapi.herokuapp.com/reservations/${id.id}`,
+        axios.delete(`https://princestavernapi.netlify.app/reservations/${id.id}`,
         { withCredentials: true })
         .then(response => {
             console.log("menu_item delete response", response)
@@ -65,7 +65,7 @@ const EditReservationForm = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault(reservation.id)
-        axios.patch(`https://princestavernapi.herokuapp.com/reservations/${reservation.id}`, {
+        axios.patch(`https://princestavernapi.netlify.app/reservations/${reservation.id}`, {
             reservation: {
                 phone_number: phoneNumber,
                 date: date,

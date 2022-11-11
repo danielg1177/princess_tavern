@@ -38,7 +38,7 @@ const ForgottenResponse = ({ code, email }) => {
 
     const handlePasswordSubmit = (e) => {
         e.preventDefault()
-        axios.patch(`https://princestavernapi.herokuapp.com/update`, {
+        axios.patch(`https://princestavernapi.netlify.app/update`, {
             user: {
                 email: email,
                 password: password,

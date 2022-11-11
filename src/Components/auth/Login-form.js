@@ -19,7 +19,7 @@ const LoginForm = ({ handleSuccesfulAuth, handleToggleClick }) => {
         if(validEmail.test(email) && validPassword.test(password)){
             setEmailErr(false)
             setPwdError(false)
-            axios.post("https://princestavernapi.herokuapp.com/sessions", {
+            axios.post("https://princestavernapi.netlify.app/sessions", {
                 user: {
                     password: password,
                     email: email,

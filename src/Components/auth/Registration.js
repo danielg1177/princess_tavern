@@ -23,7 +23,7 @@ const Registration = ({ handleSuccesfulAuth, handleToggleClick }) => {
     const handleSubmit = (e) => {
         e.preventDefault()
         if(validEmail.test(email) && validPassword.test(password) && validPasswordConfirmation(passwordConfirmation)) {
-            axios.post("https://princestavernapi.herokuapp.com/registrations", {
+            axios.post("https://princestavernapi.netlify.app/registrations", {
                 user: {
                     password: password,
                     email: email,
